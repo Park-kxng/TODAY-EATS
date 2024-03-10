@@ -17,6 +17,11 @@
 		205AE9142B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9132B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift */; };
 		205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9202B9A74610022A1E2 /* LoginView.swift */; };
 		20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD452B9DC804006B5A3B /* MyPageView.swift */; };
+		20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */; };
+		20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4B2B9DE1CA006B5A3B /* SmallButton.swift */; };
+		20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */; };
+		20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */; };
+		20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */; };
 		20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFDC942B9B67B60091C49F /* Desgin.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +56,11 @@
 		205AE9132B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		205AE9202B9A74610022A1E2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		20D2AD452B9DC804006B5A3B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSelectionView.swift; sourceTree = "<group>"; };
+		20D2AD4B2B9DE1CA006B5A3B /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
+		20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpicySelectionView.swift; sourceTree = "<group>"; };
+		20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		20EFDC942B9B67B60091C49F /* Desgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,14 +112,14 @@
 		205AE8F32B9A726B0022A1E2 /* TODAY-EATS */ = {
 			isa = PBXGroup;
 			children = (
+				20D2AD472B9DD4B2006B5A3B /* View */,
 				205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */,
 				20EFDC942B9B67B60091C49F /* Desgin.swift */,
-				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
-				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				205AE8F82B9A726B0022A1E2 /* Item.swift */,
-				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
 				205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */,
 				205AE8FC2B9A726C0022A1E2 /* Preview Content */,
+				20D2AD4B2B9DE1CA006B5A3B /* SmallButton.swift */,
+				20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */,
 			);
 			path = "TODAY-EATS";
 			sourceTree = "<group>";
@@ -137,6 +147,27 @@
 				205AE9132B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift */,
 			);
 			path = "TODAY-EATSUITests";
+			sourceTree = "<group>";
+		};
+		20D2AD472B9DD4B2006B5A3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				205AE9202B9A74610022A1E2 /* LoginView.swift */,
+				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
+				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
+				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20D2AD482B9DD4CC006B5A3B /* Todayeats */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */,
+				20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */,
+				20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */,
+			);
+			path = Todayeats;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
+				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
+				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
+				20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */,
+				20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */,
 				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
+				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
 				205AE8F92B9A726B0022A1E2 /* Item.swift in Sources */,
 				205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */,
 				205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */,

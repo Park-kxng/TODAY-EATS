@@ -14,8 +14,7 @@ struct ContentView: View {
                     Text("커뮤니티")
                         .font(.largeTitle)
                 } else if selectedTab == 1 {
-                    Text("뭐 먹지?")
-                        .font(.largeTitle)
+                    CuisineSelectionView()
                 } else if selectedTab == 2 {
                     MyPageView()
                 }
