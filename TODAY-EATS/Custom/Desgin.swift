@@ -14,20 +14,26 @@ extension Font {
     }
     
     static func teFont14R() -> Font {
-        return Font.custom("AppleSDGothicNeo-medium", size: 14)
+        return Font.custom("AppleSDGothicNeo-Regular", size: 14)
     }
     static func teFont12M() -> Font {
-        return Font.custom("AppleSDGothicNeo-medium", size: 12)
+        return Font.custom("AppleSDGothicNeo-Medium", size: 12)
     }
     static func teFont16M() -> Font {
-        return Font.custom("AppleSDGothicNeo-medium", size: 16)
+        return Font.custom("AppleSDGothicNeo-Medium", size: 16)
     }
     
     static func teFont16SM() -> Font {
         return Font.custom("AppleSDGothicNeo-SemiBold", size: 16)
     }
     static func teFont18M() -> Font {
-        return Font.custom("AppleSDGothicNeo-medium", size: 18)
+        return Font.custom("AppleSDGothicNeo-Medium", size: 18)
+    }
+    static func teFont18B() -> Font {
+        return Font.custom("AppleSDGothicNeo-Bold", size: 18)
+    }
+    static func teFont20SM() -> Font {
+        return Font.custom("AppleSDGothicNeo-SemiBold", size: 20)
     }
     // 나머지 폰트에 대해서도 유사하게 정의합니다.
 }
@@ -38,6 +44,8 @@ extension Color {
     static let teTitleGray = Color(red: 185/255, green: 185/255, blue: 185/255)
     static let teLightGray = Color(red: 246/255, green: 246/255, blue: 246/255)
     static let teMidGray = Color(red: 175/255, green: 175/255, blue: 175/255)
+    static let teRed = Color(red: 255/255, green: 142/255, blue: 142/255)
+    static let teLineGray = Color(red: 250/255, green: 250/255, blue: 250/255)
 
     static let mpMainColorA30 = Color(red: 19/255, green: 203/255, blue: 191/255, opacity: 0.3)
     

@@ -1,25 +1,26 @@
 //
-//  CuisineSelectionView.swift
+//  WeatherSelectionView.swift
 //  TODAY-EATS
 //
-//  Created by p_kxn_g on 3/10/24.
+//  Created by p_kxn_g on 3/11/24.
 //
-
 
 import SwiftUI
 
-struct CuisineSelectionView: View {
-    @StateObject private var navigationManager = NavigationManager()
+
+
+struct WeatherSelectionView: View {
+    var navigationManager: NavigationManager
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
         @State private var isNavigationActive = false
         @State private var selectedItem: String? = nil
         @State private var navigationValue: NavigationDestination?
 
-    let title : String = "먹고 싶은 음식의 종류는?"
+    let title : String = "오늘 날씨는 어때요?"
     let subTitle = "복수 선택 가능해요!"
 
-    let buttonTitles : [String] = ["한식", "중식", "일식", "양식", "아시아 음식", "분식", "카페", "기타"]
+    let buttonTitles : [String] = ["☀️ 맑음", "️⛅️ 흐림", "🌬️ 쌀쌀함", "🌫️ 황사", "☁️ 구름 많음", "💦 습함", "🌧️ 비 옴", "❄️ 눈 옴"]
     let buttonLines : [ClosedRange<Int>] = [1...4, 5...8]
         @State private var selectedCuisines: Set<String> = []
         @State private var nextButtonEnabled: Bool = false
@@ -29,7 +30,6 @@ struct CuisineSelectionView: View {
     let backgroundColor = Color.teLightGray
     let backgroundClicked = Color.teBlack
         var body: some View {
-            NavigationStack(path: $navigationManager.path) {
                 
                 VStack{
                     Spacer()
@@ -51,39 +51,33 @@ struct CuisineSelectionView: View {
                         createButtonRow(range: buttonLines[index])
                     }
                     Spacer()
-                    
                     HStack{
                         Spacer().frame(width: 15)
-                        HStack{
+                        
+                        NavigationLink {
+                            LocationCheckView(navigationManager : navigationManager)
+                        } label: {
                             Spacer()
-                            NavigationLink("다음 단계로", value: "Spicy")
+                            Text("다음 단계로")
                                 .font(.teFont18M())
                                 .foregroundColor(nextButtonEnabled ? fontColorClicked : fontColor)
-                               
-                                .disabled(!nextButtonEnabled)
                             Spacer()
                         }.frame(height: 56.0)
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
                             .cornerRadius(12)
-                    
+                            .disabled(!nextButtonEnabled)
 
-                        
                         Spacer().frame(width: 15)
-                        
+
                     }
+                    
                     Spacer().frame(height: 20.0)
                     
-                    
-                    
-                }.onAppear {
-                    // Example logic to enable button - replace with your actual logic
-                    nextButtonEnabled = !selectedCuisines.isEmpty
-                } .navigationDestination(for: String.self) { str in
-                    switch str {
-                    case "Spicy": SpicySelectionView(navigationManager: navigationManager)
-                    default: EmptyView()
-                    }
-                }
+                
+               
+            }.onAppear {
+                // Example logic to enable button - replace with your actual logic
+                nextButtonEnabled = !selectedCuisines.isEmpty
             }
             
         }
@@ -113,4 +107,5 @@ struct CuisineSelectionView: View {
                 }
             }
     }
+ 
 

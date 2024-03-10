@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */; };
 		205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F62B9A726B0022A1E2 /* ContentView.swift */; };
-		205AE8F92B9A726B0022A1E2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F82B9A726B0022A1E2 /* Item.swift */; };
 		205AE8FB2B9A726C0022A1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */; };
 		205AE8FE2B9A726C0022A1E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205AE8FD2B9A726C0022A1E2 /* Preview Assets.xcassets */; };
 		205AE9082B9A726D0022A1E2 /* TODAY_EATSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9072B9A726D0022A1E2 /* TODAY_EATSTests.swift */; };
@@ -22,6 +21,14 @@
 		20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */; };
 		20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */; };
 		20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */; };
+		20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */; };
+		20D2AD582B9E209C006B5A3B /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */; };
+		20D2AD5A2B9E383D006B5A3B /* PlaceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */; };
+		20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */; };
+		20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */; };
+		20D2AD612B9E4A72006B5A3B /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD602B9E4A72006B5A3B /* ResultView.swift */; };
+		20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD622B9E5431006B5A3B /* NavigationManager.swift */; };
+		20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD642B9E63B7006B5A3B /* CommunityView.swift */; };
 		20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFDC942B9B67B60091C49F /* Desgin.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +53,6 @@
 		205AE8F12B9A726B0022A1E2 /* TODAY-EATS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODAY-EATS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSApp.swift; sourceTree = "<group>"; };
 		205AE8F62B9A726B0022A1E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		205AE8F82B9A726B0022A1E2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		205AE8FD2B9A726C0022A1E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		205AE9032B9A726D0022A1E2 /* TODAY-EATSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TODAY-EATSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,15 @@
 		20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpicySelectionView.swift; sourceTree = "<group>"; };
 		20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilySelectionView.swift; sourceTree = "<group>"; };
+		20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
+		20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSelectionView.swift; sourceTree = "<group>"; };
+		20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSelectionView.swift; sourceTree = "<group>"; };
+		20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCheckView.swift; sourceTree = "<group>"; };
+		20D2AD5F2B9E3D32006B5A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		20D2AD602B9E4A72006B5A3B /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		20D2AD622B9E5431006B5A3B /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		20D2AD642B9E63B7006B5A3B /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		20EFDC942B9B67B60091C49F /* Desgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,14 +127,12 @@
 		205AE8F32B9A726B0022A1E2 /* TODAY-EATS */ = {
 			isa = PBXGroup;
 			children = (
-				20D2AD472B9DD4B2006B5A3B /* View */,
+				20D2AD5F2B9E3D32006B5A3B /* Info.plist */,
 				205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */,
-				20EFDC942B9B67B60091C49F /* Desgin.swift */,
-				205AE8F82B9A726B0022A1E2 /* Item.swift */,
+				20D2AD662B9E6636006B5A3B /* Custom */,
+				20D2AD472B9DD4B2006B5A3B /* View */,
 				205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */,
 				205AE8FC2B9A726C0022A1E2 /* Preview Content */,
-				20D2AD4B2B9DE1CA006B5A3B /* SmallButton.swift */,
-				20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */,
 			);
 			path = "TODAY-EATS";
 			sourceTree = "<group>";
@@ -155,6 +168,7 @@
 				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
 				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
+				20D2AD642B9E63B7006B5A3B /* CommunityView.swift */,
 				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
 			);
 			path = View;
@@ -165,9 +179,34 @@
 			children = (
 				20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */,
 				20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */,
+				20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */,
+				20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */,
+				20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */,
 				20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */,
+				20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */,
+				20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */,
+				20D2AD602B9E4A72006B5A3B /* ResultView.swift */,
+				20D2AD622B9E5431006B5A3B /* NavigationManager.swift */,
 			);
 			path = Todayeats;
+			sourceTree = "<group>";
+		};
+		20D2AD662B9E6636006B5A3B /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD672B9E664D006B5A3B /* Button */,
+				20EFDC942B9B67B60091C49F /* Desgin.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		20D2AD672B9E664D006B5A3B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD4B2B9DE1CA006B5A3B /* SmallButton.swift */,
+				20D2AD4D2B9DEB94006B5A3B /* NextButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,15 +339,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */,
+				20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */,
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
+				20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */,
 				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
+				20D2AD5A2B9E383D006B5A3B /* PlaceSelectionView.swift in Sources */,
 				20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */,
 				20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */,
+				20D2AD582B9E209C006B5A3B /* NavigationDestination.swift in Sources */,
 				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
+				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
+				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
-				205AE8F92B9A726B0022A1E2 /* Item.swift in Sources */,
+				20D2AD612B9E4A72006B5A3B /* ResultView.swift in Sources */,
 				205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */,
 				205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */,
 			);
@@ -477,6 +523,8 @@
 				DEVELOPMENT_TEAM = 4ND496J48G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TODAY-EATS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -506,6 +554,8 @@
 				DEVELOPMENT_TEAM = 4ND496J48G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TODAY-EATS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
