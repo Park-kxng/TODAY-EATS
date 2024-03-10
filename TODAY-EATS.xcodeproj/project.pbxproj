@@ -16,6 +16,7 @@
 		205AE9122B9A726D0022A1E2 /* TODAY_EATSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9112B9A726D0022A1E2 /* TODAY_EATSUITests.swift */; };
 		205AE9142B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9132B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift */; };
 		205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE9202B9A74610022A1E2 /* LoginView.swift */; };
+		20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD452B9DC804006B5A3B /* MyPageView.swift */; };
 		20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFDC942B9B67B60091C49F /* Desgin.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		205AE9112B9A726D0022A1E2 /* TODAY_EATSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSUITests.swift; sourceTree = "<group>"; };
 		205AE9132B9A726D0022A1E2 /* TODAY_EATSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		205AE9202B9A74610022A1E2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		20D2AD452B9DC804006B5A3B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		20EFDC942B9B67B60091C49F /* Desgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
 				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				205AE8F82B9A726B0022A1E2 /* Item.swift */,
+				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
 				205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */,
 				205AE8FC2B9A726C0022A1E2 /* Preview Content */,
 			);
@@ -268,6 +271,7 @@
 			files = (
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
+				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
 				205AE8F92B9A726B0022A1E2 /* Item.swift in Sources */,
 				205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */,
 				205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */,

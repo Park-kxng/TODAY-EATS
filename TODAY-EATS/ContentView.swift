@@ -17,8 +17,7 @@ struct ContentView: View {
                     Text("뭐 먹지?")
                         .font(.largeTitle)
                 } else if selectedTab == 2 {
-                    Text("마이페이지")
-                        .font(.largeTitle)
+                    MyPageView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
