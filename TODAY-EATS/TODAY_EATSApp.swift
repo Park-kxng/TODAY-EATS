@@ -25,7 +25,7 @@ struct TODAY_EATSApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ContentView()
         }
         .modelContainer(sharedModelContainer)
     }

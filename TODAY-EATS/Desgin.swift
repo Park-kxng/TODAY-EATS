@@ -17,7 +17,7 @@ extension Font {
 }
 
 extension Color {
-    static let mpMainColor = Color(red: 19/255, green: 203/255, blue: 191/255)
+    static let teBlack = Color(red: 48/255, green: 48/255, blue: 48/255)
     static let mpMainColorA30 = Color(red: 19/255, green: 203/255, blue: 191/255, opacity: 0.3)
     
     // 나머지 색상에 대해서도 유사하게 정의합니다.
