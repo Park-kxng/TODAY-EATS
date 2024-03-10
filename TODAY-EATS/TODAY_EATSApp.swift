@@ -21,6 +21,7 @@ struct TODAY_EATSApp: App {
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
+     
     }()
 
     var body: some Scene {
