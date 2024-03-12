@@ -36,6 +36,12 @@
 		20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */; };
 		20D2AD752B9F7EC6006B5A3B /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD742B9F7EC6006B5A3B /* CreatePostView.swift */; };
 		20D2AD782B9FDB40006B5A3B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */; };
+		20D4E7B72BA06DCD000B3257 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20D4E7B62BA06DCC000B3257 /* GoogleService-Info.plist */; };
+		20D4E7BA2BA06EF0000B3257 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 20D4E7B92BA06EF0000B3257 /* FirebaseAuth */; };
+		20D4E7BC2BA06EF0000B3257 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 20D4E7BB2BA06EF0000B3257 /* FirebaseDatabase */; };
+		20D4E7BE2BA06EF0000B3257 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20D4E7BD2BA06EF0000B3257 /* FirebaseDatabaseSwift */; };
+		20D4E7C02BA06FBD000B3257 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4E7BF2BA06FBD000B3257 /* LoginViewModel.swift */; };
+		20D4E7C22BA076CC000B3257 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4E7C12BA076CC000B3257 /* AuthService.swift */; };
 		20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFDC942B9B67B60091C49F /* Desgin.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +96,10 @@
 		20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
 		20D2AD742B9F7EC6006B5A3B /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		20D4E7B52B9FE418000B3257 /* TODAY-EATS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TODAY-EATS.entitlements"; sourceTree = "<group>"; };
+		20D4E7B62BA06DCC000B3257 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20D4E7BF2BA06FBD000B3257 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		20D4E7C12BA076CC000B3257 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		20EFDC942B9B67B60091C49F /* Desgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D4E7BE2BA06EF0000B3257 /* FirebaseDatabaseSwift in Frameworks */,
+				20D4E7BC2BA06EF0000B3257 /* FirebaseDatabase in Frameworks */,
+				20D4E7BA2BA06EF0000B3257 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +154,8 @@
 		205AE8F32B9A726B0022A1E2 /* TODAY-EATS */ = {
 			isa = PBXGroup;
 			children = (
+				20D4E7B52B9FE418000B3257 /* TODAY-EATS.entitlements */,
+				20D4E7B62BA06DCC000B3257 /* GoogleService-Info.plist */,
 				20D2AD5F2B9E3D32006B5A3B /* Info.plist */,
 				205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */,
 				20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */,
@@ -250,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */,
+				20D4E7BF2BA06FBD000B3257 /* LoginViewModel.swift */,
+				20D4E7C12BA076CC000B3257 /* AuthService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,6 +287,11 @@
 			dependencies = (
 			);
 			name = "TODAY-EATS";
+			packageProductDependencies = (
+				20D4E7B92BA06EF0000B3257 /* FirebaseAuth */,
+				20D4E7BB2BA06EF0000B3257 /* FirebaseDatabase */,
+				20D4E7BD2BA06EF0000B3257 /* FirebaseDatabaseSwift */,
+			);
 			productName = "TODAY-EATS";
 			productReference = 205AE8F12B9A726B0022A1E2 /* TODAY-EATS.app */;
 			productType = "com.apple.product-type.application";
@@ -342,6 +364,9 @@
 				Base,
 			);
 			mainGroup = 205AE8E82B9A726B0022A1E2;
+			packageReferences = (
+				20D4E7B82BA06EF0000B3257 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 205AE8F22B9A726B0022A1E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +385,7 @@
 			files = (
 				205AE8FE2B9A726C0022A1E2 /* Preview Assets.xcassets in Resources */,
 				205AE8FB2B9A726C0022A1E2 /* Assets.xcassets in Resources */,
+				20D4E7B72BA06DCD000B3257 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +418,7 @@
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
 				20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */,
+				20D4E7C02BA06FBD000B3257 /* LoginViewModel.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
 				20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */,
 				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
@@ -404,6 +431,7 @@
 				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
+				20D4E7C22BA076CC000B3257 /* AuthService.swift in Sources */,
 				20D2AD702B9F5EBB006B5A3B /* OnBoarding4View.swift in Sources */,
 				20D2AD752B9F7EC6006B5A3B /* CreatePostView.swift in Sources */,
 				20D2AD612B9E4A72006B5A3B /* ResultView.swift in Sources */,
@@ -569,10 +597,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "TODAY-EATS/TODAY-EATS.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TODAY-EATS/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ND496J48G;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 387JTQ5ATJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TODAY-EATS/Info.plist";
@@ -589,6 +620,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "pky.TODAY-EATS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TODAY EATS Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,10 +633,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "TODAY-EATS/TODAY-EATS.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TODAY-EATS/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ND496J48G;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 387JTQ5ATJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TODAY-EATS/Info.plist";
@@ -620,6 +656,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "pky.TODAY-EATS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TODAY EATS Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,6 +780,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20D4E7B82BA06EF0000B3257 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.22.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20D4E7B92BA06EF0000B3257 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20D4E7B82BA06EF0000B3257 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		20D4E7BB2BA06EF0000B3257 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20D4E7B82BA06EF0000B3257 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		20D4E7BD2BA06EF0000B3257 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20D4E7B82BA06EF0000B3257 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 205AE8E92B9A726B0022A1E2 /* Project object */;
 }

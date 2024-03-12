@@ -7,10 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
-@main
 struct YOUR_APPApp: App {
     @StateObject var onBoardingManager = OnboardingManager()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var body: some Scene {
         WindowGroup {
@@ -20,5 +21,11 @@ struct YOUR_APPApp: App {
                 OnBoarding1View(onBoardingManager:onBoardingManager)
             }
         }
+    }
+}
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
     }
 }

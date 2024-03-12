@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import AuthenticationServices
 
 struct LoginView : View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var authService: AuthService
 
     var body: some View {
         GeometryReader { geometry in
@@ -39,7 +41,8 @@ struct LoginView : View {
                 Spacer().frame(minHeight: 30, maxHeight: 120)
                 // 카카오 로그인 버튼
                 Button(action: {
-                    // 카카오 로그인 액션
+                    print("Tapped apple sign in")
+                    authService.startSignInWithAppleFlow()
                 }) {
                     Image("btn_login_apple")
                         .resizable()
@@ -64,6 +67,9 @@ struct LoginView : View {
             .background(colorScheme == .dark ? Color.teBlack : Color.white)
 
         }
+    }
+    private func SignInWithApple(){
+        
     }
 }
 
