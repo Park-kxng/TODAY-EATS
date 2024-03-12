@@ -8,13 +8,22 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+import CryptoKit
 import AuthenticationServices
 
 struct LoginView : View {
+    @StateObject var onBoardingManager = OnboardingManager()
+    @State private var navigateToOnboarding = false
+
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var authService: AuthService
+    
 
     var body: some View {
+        NavigationStack {
         GeometryReader { geometry in
             
             VStack(alignment: .center) {
@@ -39,43 +48,64 @@ struct LoginView : View {
                     .multilineTextAlignment(.center)
                 
                 Spacer().frame(minHeight: 30, maxHeight: 120)
-                // 카카오 로그인 버튼
-                Button(action: {
-                    print("Tapped apple sign in")
-                    authService.startSignInWithAppleFlow()
-                }) {
-                    Image("btn_login_apple")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: (geometry.size.width - CGFloat(30)), maxWidth: (geometry.size.width - CGFloat(20)))
-                    
-                }
-                Spacer().frame(height: 15)
 
-                // 애플 로그인 버튼
-                Button(action: {
-                    // 애플 로그인 액션
-                }) {
-                    Image("btn_login_naver")
-                        .resizable()
-                        .renderingMode(.original)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: (geometry.size.width - CGFloat(30)), maxWidth: (geometry.size.width - CGFloat(20)))
+                HStack{
+                    Spacer().frame(width: 15)
+                    VStack{
+                        // 애플 로그인
+                        Button(action: {
+                            print("애플 로그인 버튼 클릭")
+                            authService.startSignInWithAppleFlow()
+                            if authService.signInSuccess {
+                                print(authService.signInSuccess)
+                                navigateToOnboarding = true
+                            }
+                            
+                        }) {
+                            Image("btn_login_apple")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            
+                        }
+                        .navigationDestination(
+                            isPresented: $navigateToOnboarding) {
+                                             OnBoarding1View(onBoardingManager: onBoardingManager )
+                                    .navigationBarBackButtonHidden()
+
+                                         }
+                        //
+                        Spacer().frame(height: 15)
+                        
+                        // 네이버 로그인 버튼
+                        Button(action: {
+                        }) {
+                            Image("btn_login_naver")
+                                .resizable()
+                                .renderingMode(.original)
+                                .aspectRatio(contentMode: .fit)
+                        }
+                    }
+                    Spacer().frame(width: 15)
+
                 }
+               
+                
+                }
+            
+
                 Spacer().frame(minHeight: 30)
             }
             .background(colorScheme == .dark ? Color.teBlack : Color.white)
-
+            //v
+            
         }
+        .onChange(of: authService.signInSuccess) { oldState, newState in
+            navigateToOnboarding = newState
+        }
+      
+    
     }
-    private func SignInWithApple(){
-        
-    }
+       
 }
 
-struct LoginView_Previews : PreviewProvider {
-    static var previews: some View{
-        LoginView()
-    }
-}
 

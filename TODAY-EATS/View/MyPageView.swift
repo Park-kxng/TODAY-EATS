@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @EnvironmentObject var authService : AuthService
+
     @State var user = User()
     
     let myPageData = [
@@ -74,10 +76,38 @@ struct MyPageView: View {
             switch item {
             case "프로필":
                 Text("프로필 상세 화면")
+            case "로그아웃":
+                Button("로그아웃 시도 중"){
+                    signOut()
+                }
+            case "탈퇴하기":
+                Button("탈퇴하기 시도 중"){
+                    delete()
+                }
             default:
                 Text("\(item) 상세 화면")
             }
         }
+    func signOut() {
+        Task {
+            do {
+                try await authService.signOut()
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    func delete() {
+        Task {
+            do {
+                try await authService.delete()
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
+    }
 }
 
 struct MyPageSection {

@@ -63,29 +63,26 @@ struct OnBoarding4View: View {
                 
                 Spacer().frame(width: 15)
                 
-                Button(action: {
-                    onboardingManager.isOnboardingCompleted = true
-                }) {
+                NavigationLink {
+                    HomeView()
+                } label: {
                     Spacer()
                     Text("투데이츠 시작하기")
                         .font(.teFont18M())
-                        .foregroundColor(fontColorClicked)
+                        .foregroundColor(.white)
                     Spacer()
-
-                } .frame(height: 56.0)
-                    .background( backgroundClicked )
+                }.frame(height: 56.0)
+                    .background( Color.teBlack )
                     .cornerRadius(12)
+
                         
             
                 Spacer().frame(width: 15)
             }
-
             Spacer().frame(height: 15)
 
-        }.navigationBarBackButtonHidden(true)
-        
-        
-        
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
        

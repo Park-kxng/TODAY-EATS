@@ -18,7 +18,6 @@ struct OnBoarding1View: View {
     let subTitle: String = "뭐 먹을지 고민되면 언제든 찾아주세요!"
 
     var body: some View {
-        NavigationStack(path: $navigationManager.path){
             VStack {
                 Spacer().frame(height: 60)
                 HStack{
@@ -46,17 +45,26 @@ struct OnBoarding1View: View {
                     Spacer().frame(width: 15)
                     HStack{
                         Spacer()
-                        NavigationLink("다음 단계로", value: "onboarding")
-                            .font(.teFont18M())
-                            .foregroundColor( .white)
+                        NavigationLink {
+                            OnBoarding2View(onBoardingManager: onBoardingManager)
+                                .navigationBarBackButtonHidden()
+
+                        } label: {
+                            Spacer()
+                            Text("다음 단계로")
+                                .font(.teFont18M())
+                                .foregroundColor(.white)
+                            Spacer()
+                        }.frame(height: 56.0)
+                            .background( Color.teBlack )
+                            .cornerRadius(12)
+
                            
                         Spacer()
                     }.frame(height: 56.0)
                         .background(Color.teBlack)
                         .cornerRadius(12)
-                        .renameAction {
-                            onBoardingManager.goToNextStep()
-                        }
+    
                 
 
                     
@@ -69,15 +77,10 @@ struct OnBoarding1View: View {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
-            .navigationDestination(for: String.self) { str in
-                switch str {
-                case "onboarding": OnBoarding2View(onBoardingManager: onBoardingManager).navigationBarBackButtonHidden()
-                default: EmptyView()
-                }
-            }
-        }
+
     }
 }
+
 
 #Preview {
     OnBoarding1View(onBoardingManager: OnboardingManager())
