@@ -39,6 +39,7 @@ struct CustomCorners: Shape {
     }
 }
 struct CommunityView: View {
+    @StateObject var firestoreManager = FireStoreManager()
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedItem: FeedItem?
     @StateObject private var locationViewModel = LocationViewModel()

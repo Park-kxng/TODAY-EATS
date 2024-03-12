@@ -47,14 +47,24 @@ import Firebase
 
 @main
 struct TODAY_EATSApp: App {
+    
     @StateObject var authService : AuthService
+
     // 1. Add StateObject authManager.
 
     init() {
         FirebaseApp.configure()
         let authService = AuthService()
         _authService = StateObject(wrappedValue: authService)
+        print(authService.authState)
+        if UserDefaults.standard.bool(forKey: "login"){
+            authService.authState = .signedIn
+        }else{
+            authService.authState = .signedOut
 
+        }
+        
+        
     }
     
     var body: some Scene {

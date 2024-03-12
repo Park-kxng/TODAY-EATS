@@ -43,6 +43,8 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
             do {
                 // TODO: Sign out from signed-in Provider.
                 try Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "login")
+
             }
             catch let error as NSError {
                 print("FirebaseAuthError: failed to sign out from Firebase, \(error)")
@@ -175,7 +177,14 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
                         }
                         // User is signed in to Firebase with Apple.
                         print("login success")
+                        if let user = Auth.auth().currentUser {
+                            print(user.email)
+                            UserDefaults.standard.set(user.email, forKey: "email")
+
+                        }
+                        UserDefaults.standard.set(true, forKey: "login")
                         self.signInSuccess = true // 로그인 성공 처리
+                        self.authState = .signedIn // 로그인 상태 저장
                     }
                 }
             }

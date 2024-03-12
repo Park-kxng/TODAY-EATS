@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */; };
 		205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */; };
 		205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F62B9A726B0022A1E2 /* ContentView.swift */; };
 		205AE8FB2B9A726C0022A1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */; };
 		20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */; };
 		20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */; };
-		20D2AD582B9E209C006B5A3B /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */; };
 		20D2AD5A2B9E383D006B5A3B /* PlaceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */; };
 		20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */; };
 		20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */; };
@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		205AE8F12B9A726B0022A1E2 /* TODAY-EATS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODAY-EATS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSApp.swift; sourceTree = "<group>"; };
 		205AE8F62B9A726B0022A1E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpicySelectionView.swift; sourceTree = "<group>"; };
 		20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilySelectionView.swift; sourceTree = "<group>"; };
-		20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSelectionView.swift; sourceTree = "<group>"; };
 		20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSelectionView.swift; sourceTree = "<group>"; };
 		20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCheckView.swift; sourceTree = "<group>"; };
@@ -180,6 +180,7 @@
 				205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */,
 				20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */,
 				20D2AD622B9E5431006B5A3B /* NavigationManager.swift */,
+				202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */,
 				20D4E7C12BA076CC000B3257 /* AuthService.swift */,
 				20D2AD662B9E6636006B5A3B /* Custom */,
 				20D2AD762B9FDB19006B5A3B /* ViewModel */,
@@ -240,7 +241,6 @@
 				20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */,
 				20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */,
 				20D2AD602B9E4A72006B5A3B /* ResultView.swift */,
-				20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */,
 			);
 			path = Todayeats;
 			sourceTree = "<group>";
@@ -457,9 +457,9 @@
 				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
 				20D2AD5A2B9E383D006B5A3B /* PlaceSelectionView.swift in Sources */,
 				20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */,
+				202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */,
 				20D2AD6E2B9EE89D006B5A3B /* OnBoarding3View.swift in Sources */,
 				20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */,
-				20D2AD582B9E209C006B5A3B /* NavigationDestination.swift in Sources */,
 				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
 				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,

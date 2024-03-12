@@ -82,7 +82,7 @@ struct MyPageView: View {
                 }
             case "탈퇴하기":
                 Button("탈퇴하기 시도 중"){
-                    delete()
+                    signOut()
                 }
             default:
                 Text("\(item) 상세 화면")
