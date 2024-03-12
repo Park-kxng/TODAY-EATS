@@ -8,11 +8,12 @@
 import SwiftUI
 
 
-#Preview {
-    OnBoarding4View()
-}
+//#Preview {
+//    OnBoarding4View()
+//}
 
 struct OnBoarding4View: View {
+    @ObservedObject var onboardingManager: OnboardingManager
 
     @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
     @State private var isNavigationActive = false
@@ -30,7 +31,6 @@ struct OnBoarding4View: View {
     let backgroundColor = Color.teLightGray
     let backgroundClicked = Color.teBlack
     var body: some View {
-        
         VStack{
             Spacer()
                 .frame(height: 60)
@@ -53,40 +53,46 @@ struct OnBoarding4View: View {
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fit)
-                    .frame(minHeight: 460)
+                    .frame(minHeight: 300, maxHeight: 460)
+
                 Spacer().frame(width: 20)
             }
             
-            Spacer().frame(maxHeight: 20)
-            
+            Spacer().frame(maxHeight: 40)
             HStack{
+                
                 Spacer().frame(width: 15)
                 
-                NavigationLink {
-                    ContentView()
-                } label: {
+                Button(action: {
+                    onboardingManager.isOnboardingCompleted = true
+                }) {
                     Spacer()
                     Text("투데이츠 시작하기")
                         .font(.teFont18M())
                         .foregroundColor(fontColorClicked)
                     Spacer()
-                }.frame(height: 56.0)
+
+                } .frame(height: 56.0)
                     .background( backgroundClicked )
                     .cornerRadius(12)
-
-                Spacer().frame(width: 15)
-
-            }
+                        
             
-            Spacer().frame(height: 20.0)
+                Spacer().frame(width: 15)
+            }
 
-        }
+            Spacer().frame(height: 15)
+
+        }.navigationBarBackButtonHidden(true)
         
         
         
     }
 }
        
+
+#Preview {
+    OnBoarding4View(onboardingManager: OnboardingManager())
+}
 
 
   

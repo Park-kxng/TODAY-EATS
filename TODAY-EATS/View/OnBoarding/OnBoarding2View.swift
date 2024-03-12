@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnBoarding2View: View {
-
+    @ObservedObject var onBoardingManager: OnboardingManager
     @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
     @State private var isNavigationActive = false
     @State private var selectedItem: String? = nil
@@ -29,7 +29,7 @@ struct OnBoarding2View: View {
             NavigationView{
                 VStack{
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 60)
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
@@ -53,7 +53,7 @@ struct OnBoarding2View: View {
                         Spacer().frame(width: 15)
                         
                         NavigationLink {
-                            OnBoarding3View()
+                            OnBoarding3View(onBoardingManager: onBoardingManager)
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -64,6 +64,9 @@ struct OnBoarding2View: View {
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
                             .cornerRadius(12)
                             .disabled(!nextButtonEnabled)
+                            .renameAction {
+                                onBoardingManager.goToNextStep()
+                            }
                         
                         Spacer().frame(width: 15)
                         
@@ -72,7 +75,8 @@ struct OnBoarding2View: View {
                     
                     
                     
-                }.onAppear {
+                }
+                .onAppear {
                     // Example logic to enable button - replace with your actual logic
                     nextButtonEnabled = !(selectedItem == nil)
                 }
@@ -100,8 +104,7 @@ struct OnBoarding2View: View {
                 }
             }
     }
-    #Preview {
-        OnBoarding2View()
-        
-    }
+#Preview {
+    OnBoarding2View(onBoardingManager: OnboardingManager())
+}
 

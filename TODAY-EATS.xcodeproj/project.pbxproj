@@ -33,6 +33,9 @@
 		20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD6B2B9EE886006B5A3B /* OnBoarding2View.swift */; };
 		20D2AD6E2B9EE89D006B5A3B /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD6D2B9EE89D006B5A3B /* OnBoarding3View.swift */; };
 		20D2AD702B9F5EBB006B5A3B /* OnBoarding4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD6F2B9F5EBB006B5A3B /* OnBoarding4View.swift */; };
+		20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */; };
+		20D2AD752B9F7EC6006B5A3B /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD742B9F7EC6006B5A3B /* CreatePostView.swift */; };
+		20D2AD782B9FDB40006B5A3B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */; };
 		20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFDC942B9B67B60091C49F /* Desgin.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		20D2AD6B2B9EE886006B5A3B /* OnBoarding2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding2View.swift; sourceTree = "<group>"; };
 		20D2AD6D2B9EE89D006B5A3B /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
 		20D2AD6F2B9F5EBB006B5A3B /* OnBoarding4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding4View.swift; sourceTree = "<group>"; };
+		20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
+		20D2AD742B9F7EC6006B5A3B /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		20EFDC942B9B67B60091C49F /* Desgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,9 +143,13 @@
 			children = (
 				20D2AD5F2B9E3D32006B5A3B /* Info.plist */,
 				205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */,
+				20D2AD712B9F6665006B5A3B /* OnBoardingManager.swift */,
+				20D2AD622B9E5431006B5A3B /* NavigationManager.swift */,
 				20D2AD662B9E6636006B5A3B /* Custom */,
+				20D2AD762B9FDB19006B5A3B /* ViewModel */,
 				20D2AD472B9DD4B2006B5A3B /* View */,
 				205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */,
+				20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */,
 				205AE8FC2B9A726C0022A1E2 /* Preview Content */,
 			);
 			path = "TODAY-EATS";
@@ -173,11 +183,11 @@
 		20D2AD472B9DD4B2006B5A3B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				20D2AD682B9EE85C006B5A3B /* OnBoarding */,
 				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
 				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
-				20D2AD642B9E63B7006B5A3B /* CommunityView.swift */,
+				20D2AD732B9F7BFE006B5A3B /* Community */,
+				20D2AD682B9EE85C006B5A3B /* OnBoarding */,
 				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
 			);
 			path = View;
@@ -191,11 +201,9 @@
 				20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */,
 				20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */,
 				20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */,
-				20D2AD512B9DF6C6006B5A3B /* SelectionView.swift */,
 				20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */,
-				20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */,
 				20D2AD602B9E4A72006B5A3B /* ResultView.swift */,
-				20D2AD622B9E5431006B5A3B /* NavigationManager.swift */,
+				20D2AD572B9E209C006B5A3B /* NavigationDestination.swift */,
 			);
 			path = Todayeats;
 			sourceTree = "<group>";
@@ -227,6 +235,23 @@
 				20D2AD6F2B9F5EBB006B5A3B /* OnBoarding4View.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		20D2AD732B9F7BFE006B5A3B /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD642B9E63B7006B5A3B /* CommunityView.swift */,
+				20D2AD742B9F7EC6006B5A3B /* CreatePostView.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		20D2AD762B9FDB19006B5A3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,9 +387,11 @@
 				20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */,
 				20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */,
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
+				20D2AD782B9FDB40006B5A3B /* LocationViewModel.swift in Sources */,
 				20D2AD6A2B9EE878006B5A3B /* OnBoarding1View.swift in Sources */,
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
+				20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
 				20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */,
 				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
@@ -378,6 +405,7 @@
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
 				20D2AD702B9F5EBB006B5A3B /* OnBoarding4View.swift in Sources */,
+				20D2AD752B9F7EC6006B5A3B /* CreatePostView.swift in Sources */,
 				20D2AD612B9E4A72006B5A3B /* ResultView.swift in Sources */,
 				205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */,
 				205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */,

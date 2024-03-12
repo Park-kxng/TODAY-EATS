@@ -66,6 +66,7 @@ struct WeatherSelectionView: View {
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
                             .cornerRadius(12)
                             .disabled(!nextButtonEnabled)
+                            .navigationTitle("이전 단계로")
 
                         Spacer().frame(width: 15)
 
@@ -109,3 +110,6 @@ struct WeatherSelectionView: View {
     }
  
 
+#Preview {
+    WeatherSelectionView(navigationManager: NavigationManager())
+}

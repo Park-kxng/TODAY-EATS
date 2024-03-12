@@ -13,11 +13,26 @@ extension Font {
         return Font.custom("AppleSDGothicNeo-Bold", size: 26)
     }
     
-    static func teFont14R() -> Font {
-        return Font.custom("AppleSDGothicNeo-Regular", size: 14)
+    static func teFont10M() -> Font {
+        return Font.custom("AppleSDGothicNeo-Medium", size: 10)
+    }
+    static func teFont11SM() -> Font {
+        return Font.custom("AppleSDGothicNeo-Medium", size: 11)
     }
     static func teFont12M() -> Font {
         return Font.custom("AppleSDGothicNeo-Medium", size: 12)
+    }
+    static func teFont12SM() -> Font {
+        return Font.custom("AppleSDGothicNeo-SemiBold", size: 12)
+    }
+    static func teFont14R() -> Font {
+        return Font.custom("AppleSDGothicNeo-Regular", size: 14)
+    }
+    static func teFont14SM() -> Font {
+        return Font.custom("AppleSDGothicNeo-SemiBold", size: 14)
+    }
+    static func teFont16R() -> Font {
+        return Font.custom("AppleSDGothicNeo-Regular", size: 16)
     }
     static func teFont16M() -> Font {
         return Font.custom("AppleSDGothicNeo-Medium", size: 16)
@@ -25,6 +40,9 @@ extension Font {
     
     static func teFont16SM() -> Font {
         return Font.custom("AppleSDGothicNeo-SemiBold", size: 16)
+    }
+    static func teFont18R() -> Font {
+        return Font.custom("AppleSDGothicNeo-Regular", size: 18)
     }
     static func teFont18M() -> Font {
         return Font.custom("AppleSDGothicNeo-Medium", size: 18)
@@ -46,6 +64,8 @@ extension Color {
     static let teMidGray = Color(red: 175/255, green: 175/255, blue: 175/255)
     static let teRed = Color(red: 255/255, green: 142/255, blue: 142/255)
     static let teLineGray = Color(red: 250/255, green: 250/255, blue: 250/255)
+    static let teYellow = Color(red: 255/255, green: 223/255, blue: 146/255)
+    static let teCommunityBG  = Color(red: 243/255, green: 245/255, blue: 249/255)
 
     static let mpMainColorA30 = Color(red: 19/255, green: 203/255, blue: 191/255, opacity: 0.3)
     

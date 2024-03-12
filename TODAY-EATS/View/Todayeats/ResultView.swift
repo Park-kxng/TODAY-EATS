@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-
+#Preview(body: {
+    ResultView(navigationManager: NavigationManager())
+})
 
 
 
@@ -37,14 +39,16 @@ struct ResultView: View {
                 
                 VStack{
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 60)
+                    
+                    
                     Image("img_charc")
                         .resizable()
                         .renderingMode(.original)
                         .aspectRatio(contentMode: .fit)
-                        .frame(minHeight: 150)
+                        .frame(minHeight: 150, maxHeight: 200)
                     
-                    Spacer().frame(height: 25)
+                    Spacer().frame(height: 30)
                     
                     Text(title)
                         .font(.teFont26B())
@@ -65,7 +69,7 @@ struct ResultView: View {
                     }
                     
                     Spacer()
-                        .frame(height: 55)
+                        
 
                     HStack{
                         Spacer().frame(width: 15)

@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct CuisineSelectionView: View {
+    init(){
+        makeNavigationBarTransparent()
+    }
     @StateObject private var navigationManager = NavigationManager()
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
@@ -28,7 +31,9 @@ struct CuisineSelectionView: View {
     let fontColorClicked = Color.white
     let backgroundColor = Color.teLightGray
     let backgroundClicked = Color.teBlack
+
         var body: some View {
+            
             NavigationStack(path: $navigationManager.path) {
                 
                 VStack{
@@ -57,10 +62,10 @@ struct CuisineSelectionView: View {
                         HStack{
                             Spacer()
                             NavigationLink("다음 단계로", value: "Spicy")
-                                .font(.teFont18M())
-                                .foregroundColor(nextButtonEnabled ? fontColorClicked : fontColor)
-                               
-                                .disabled(!nextButtonEnabled)
+                                                            .font(.teFont18M())
+                                                            .foregroundColor(nextButtonEnabled ? fontColorClicked : fontColor)
+                                                            .disabled(!nextButtonEnabled)
+                                                            .navigationTitle("이전 단계로")
                             Spacer()
                         }.frame(height: 56.0)
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
@@ -112,5 +117,30 @@ struct CuisineSelectionView: View {
                     }
                 }
             }
+    
+    private func makeNavigationBarTransparent() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground() // Makes background transparent
+        appearance.shadowColor = .clear // Removes the shadow
+        appearance.backgroundColor = .clear // Sets background color to clear
+        UINavigationBar.appearance().tintColor = UIColor.lightGray // Adjust the back button color as needed
+        // For the title and large title text attributes, set them to clear or empty to make them less noticeable
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.clear]
+
+        UINavigationBar.appearance().tintColor = UIColor.red
+
+        // Apply the customized appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().tintColor = .lightGray
+
     }
 
+
+    }
+
+#Preview {
+    CuisineSelectionView()
+}

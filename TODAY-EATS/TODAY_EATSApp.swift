@@ -9,12 +9,16 @@ import SwiftUI
 import SwiftData
 
 @main
-struct TODAY_EATSApp: App {
+struct YOUR_APPApp: App {
+    @StateObject var onBoardingManager = OnboardingManager()
 
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            OnBoarding1View()
+            if onBoardingManager.isOnboardingCompleted {
+                ContentView()
+            } else {
+                OnBoarding1View(onBoardingManager:onBoardingManager)
+            }
         }
     }
 }

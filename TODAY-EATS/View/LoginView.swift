@@ -10,52 +10,60 @@ import SwiftUI
 import SwiftData
 
 struct LoginView : View {
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
-        VStack {
-            // 로고 이미지
-            Image("img_spoonNfork")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 393, height: 387)
-                .padding()
+        GeometryReader { geometry in
             
-            // 로고 이미지
-            Image("TODAY EATS")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 192, height: 46)
-                .padding(.top, 24.0)
-            
-            // 서브 텍스트
-            Text("오늘 뭐 먹지? 고민될 땐")
-                .font(.custom("Helvetica", size: 18))
-                .foregroundColor(Color.gray)
-                .multilineTextAlignment(.center)
-                .padding(.top, 7.0)
-            
-            // 카카오 로그인 버튼
-            Button(action: {
-                // 카카오 로그인 액션
-            }) {
-                Image("btn_login_apple")
-                    .renderingMode(.original)
+            VStack(alignment: .center) {
+                // 로고 이미지
+                Image("img_spoonNfork")
+                    .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 332, height: 50)
-            }
-            .padding(.top, 72.0)
-            
-            // 애플 로그인 버튼
-            Button(action: {
-                // 애플 로그인 액션
-            }) {
-                Image("btn_login_naver")
-                    .renderingMode(.original)
+                    .frame(minWidth:  geometry.size.width )
+                // 로고 이미지
+                Image("TODAY EATS")
+                    .renderingMode(.template)
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 332, height: 50)
+                    .frame(width: 192, height: 46)
+
+                // 서브 텍스트
+                Text("오늘 뭐 먹지? 고민될 땐")
+                    .font(.teFont18M())
+                    .foregroundColor(Color.teMidGray)
+                    .kerning(-0.2)
+                    .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.center)
+                
+                Spacer().frame(minHeight: 30, maxHeight: 120)
+                // 카카오 로그인 버튼
+                Button(action: {
+                    // 카카오 로그인 액션
+                }) {
+                    Image("btn_login_apple")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: (geometry.size.width - CGFloat(30)), maxWidth: (geometry.size.width - CGFloat(20)))
+                    
+                }
+                Spacer().frame(height: 15)
+
+                // 애플 로그인 버튼
+                Button(action: {
+                    // 애플 로그인 액션
+                }) {
+                    Image("btn_login_naver")
+                        .resizable()
+                        .renderingMode(.original)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: (geometry.size.width - CGFloat(30)), maxWidth: (geometry.size.width - CGFloat(20)))
+                }
+                Spacer().frame(minHeight: 30)
             }
-            .padding(.top, 16.0)
+            .background(colorScheme == .dark ? Color.teBlack : Color.white)
+
         }
-        .padding()
     }
 }
 

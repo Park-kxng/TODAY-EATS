@@ -8,11 +8,12 @@
 import SwiftUI
 
 
-#Preview {
-    OnBoarding3View()
-}
+//#Preview {
+//    OnBoarding3View()
+//}
 
 struct OnBoarding3View: View {
+    @ObservedObject var onBoardingManager: OnboardingManager
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
         @State private var isNavigationActive = false
@@ -53,17 +54,17 @@ struct OnBoarding3View: View {
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fit)
-                    .frame(minHeight: 460)
+                    .frame(minHeight: 300, maxHeight: 460)
                 Spacer().frame(width: 20)
             }
             
-            Spacer().frame(maxHeight: 20)
+            Spacer().frame(maxHeight: 40)
             
             HStack{
                 Spacer().frame(width: 15)
                 
                 NavigationLink {
-                    OnBoarding4View()
+                    OnBoarding4View(onboardingManager: onBoardingManager)
                 } label: {
                     Spacer()
                     Text("다음 단계로")
@@ -73,20 +74,27 @@ struct OnBoarding3View: View {
                 }.frame(height: 56.0)
                     .background( backgroundClicked )
                     .cornerRadius(12)
+                    .renameAction {
+                        onBoardingManager.goToNextStep()
+                    }
 
                 Spacer().frame(width: 15)
 
             }
             
-            Spacer().frame(height: 20.0)
+            Spacer().frame(height: 15)
 
-        }
+        }.navigationBarBackButtonHidden(true)
         
         
         
     }
 }
        
+
+#Preview {
+    OnBoarding3View(onBoardingManager: OnboardingManager())
+}
 
 
   

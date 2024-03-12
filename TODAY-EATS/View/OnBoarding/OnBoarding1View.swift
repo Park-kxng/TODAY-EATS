@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoarding1View: View {
+    @ObservedObject var onBoardingManager: OnboardingManager
+
     @StateObject private var navigationManager = NavigationManager()
 
     @State private var isNavigationActive = false
@@ -18,7 +20,7 @@ struct OnBoarding1View: View {
     var body: some View {
         NavigationStack(path: $navigationManager.path){
             VStack {
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 60)
                 HStack{
                     Spacer().frame(width: 20)
                     Image("img_charc")
@@ -33,6 +35,7 @@ struct OnBoarding1View: View {
                 Text(title)
                     .font(.teFont26B())
                     .kerning(-0.2)
+                    .foregroundColor(Color.teBlack)
                 Spacer().frame(height: 20)
                 Text(subTitle)
                     .font(.teFont16M())
@@ -51,6 +54,9 @@ struct OnBoarding1View: View {
                     }.frame(height: 56.0)
                         .background(Color.teBlack)
                         .cornerRadius(12)
+                        .renameAction {
+                            onBoardingManager.goToNextStep()
+                        }
                 
 
                     
@@ -65,7 +71,7 @@ struct OnBoarding1View: View {
             .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
             .navigationDestination(for: String.self) { str in
                 switch str {
-                case "onboarding": OnBoarding2View()
+                case "onboarding": OnBoarding2View(onBoardingManager: onBoardingManager).navigationBarBackButtonHidden()
                 default: EmptyView()
                 }
             }
@@ -74,6 +80,6 @@ struct OnBoarding1View: View {
 }
 
 #Preview {
-    OnBoarding1View()
+    OnBoarding1View(onBoardingManager: OnboardingManager())
 }
 

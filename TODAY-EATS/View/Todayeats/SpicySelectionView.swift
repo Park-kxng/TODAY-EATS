@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct SpicySelectionView: View {
+ 
+
     var navigationManager: NavigationManager
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
@@ -54,6 +56,8 @@ struct SpicySelectionView: View {
                         
                         NavigationLink {
                             OilySelectionView(navigationManager : navigationManager)
+                                .navigationTitle("이전 단계로")
+
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -99,8 +103,7 @@ struct SpicySelectionView: View {
                 }
             }
     }
-    #Preview {
-        CuisineSelectionView()
-        
-    }
 
+#Preview {
+    SpicySelectionView(navigationManager: NavigationManager())
+}

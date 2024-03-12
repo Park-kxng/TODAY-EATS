@@ -105,7 +105,4 @@ struct SelectionView: View {
             }
         }
 }
-#Preview {
-    SpicySelectionView(navigationManager: NavigationManager())
-    
-}
+

@@ -66,6 +66,8 @@ struct OilySelectionView : View {
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
                             .cornerRadius(12)
                             .disabled(!nextButtonEnabled)
+                            .navigationTitle("이전 단계로")
+
 
                         Spacer().frame(width: 15)
 
@@ -105,3 +107,6 @@ struct OilySelectionView : View {
 
 
 
+#Preview {
+    OilySelectionView(navigationManager: NavigationManager())
+}

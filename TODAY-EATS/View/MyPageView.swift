@@ -63,6 +63,7 @@ struct MyPageView: View {
                     }
                 }
                 .padding(.top)
+                .background(Color.white)
             }
         }
         

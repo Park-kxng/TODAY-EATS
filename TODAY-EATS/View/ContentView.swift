@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab: Int = 0
     @State private var navigationValue: NavigationDestination?
+    @Environment(\.colorScheme) var colorScheme
 
 
    
@@ -108,8 +109,7 @@ struct ContentView: View {
                 .padding()
                 .frame(height: 90.0) // 전체 탭 바의 높이 조정
                 .background(Color.white) // 커스텀 탭 바의 배경색
-                .cornerRadius(25) // 탭 바의 모서리 둥글게 처리
-                .shadow(color: Color.black.opacity(0.07), radius: 5, y: -5)
+                .shadow(color: Color.black.opacity(0.03), radius: 5, y: -5)
                 .frame(maxWidth: .infinity)
                 
             }

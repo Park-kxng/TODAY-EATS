@@ -8,60 +8,6 @@
 import SwiftUI
 import MapKit
 import CoreLocation
-class LocationViewModel: NSObject, MKMapViewDelegate, CLLocationManagerDelegate, ObservableObject{
-    var locationManager: CLLocationManager?
-    @Published var address: String = "위치 정보를 가져오는 중..."
-
-    override init() {
-        super.init()
-        self.locationManager = CLLocationManager()
-        self.locationManager?.delegate = self
-        self.locationManager?.requestWhenInUseAuthorization() // 앱 사용 중 위치 서비스 권한 요청
-        self.locationManager?.startUpdatingLocation() // 위치 업데이트 시작
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let latestLocation = locations.first else { return }
-        
-        // 여기서 latestLocation을 사용하여 위치 데이터를 저장합니다.
-        // 예: UserDefaults, CoreData, 서버 등
-        print("Updated Location: \(latestLocation)")
-        reverseGeocodeLocation(location: latestLocation)
-    }
-    // 위치 업데이트 중지 메서드
-    func stopUpdatingLocation() {
-        locationManager?.stopUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
-    
-    func reverseGeocodeLocation(location: CLLocation) {
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            if let error = error {
-                print("역지오코딩 에러: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placemark = placemarks?.first {
-                
-                
-                // 상세 주소 정보를 출력합니다.
-                let administrativeArea = placemark.administrativeArea ?? "" // 시, 도
-                let locality = placemark.locality ?? "" // 시, 구
-                let subLocality = placemark.subLocality ?? "" // 동, 읍, 면
-                print("주소: \(administrativeArea), \(locality), \(subLocality)")
-                DispatchQueue.main.async {
-                    self.address = "\(administrativeArea) \(locality) \(subLocality)"
-                    
-                }
-                // 예: "서울특별시, 강남구, 역삼동"
-            }
-        }
-    }
-}
 
 struct MapView: UIViewRepresentable {
     func makeCoordinator() -> LocationViewModel {
@@ -106,7 +52,7 @@ struct LocationCheckView: View {
                 
                 VStack{
                     Spacer()
-                        .frame(height: 60)
+                        .frame(height: 40)
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
@@ -125,13 +71,13 @@ struct LocationCheckView: View {
                         
                         // 텍스트 뷰를 추가합니다.
                         Text(locationViewModel.address)
-                            .font(.teFont20SM()) // 폰트 크기 설정
+                            .font(.teFont18M()) // 폰트 크기 설정
                             .padding(.all, 10.0) // 패딩 추가
                             .background(Color.teBlack.opacity(0.7)) // 텍스트 배경 색상 설정
                             .foregroundColor(.white) // 텍스트 색상 설정
                             .cornerRadius(30) // 텍스트 뷰 모서리 둥글게
                             .padding() // 안쪽 여백 추가
-                    }.frame(height: 400)
+                    }.frame(minHeight: 200, maxHeight: 400)
                     Spacer()
                         .frame(height: 20.0).background(Color.red)
                     
@@ -141,6 +87,7 @@ struct LocationCheckView: View {
                         
                         NavigationLink {
                             ResultView(navigationManager : navigationManager)
+                                .navigationTitle("이전 단계로")
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -151,6 +98,8 @@ struct LocationCheckView: View {
                             .background( backgroundClicked  )
                             .cornerRadius(12)
                             .renameAction({locationViewModel.stopUpdatingLocation()}
+                            
+
 )
 
                         Spacer().frame(width: 15)
@@ -198,3 +147,6 @@ struct LocationCheckView: View {
     }
 
 
+#Preview {
+    LocationCheckView(navigationManager: NavigationManager())
+}
