@@ -16,6 +16,7 @@ class SelectionModel: ObservableObject, Identifiable {
     @Published var place: Set<String> = []
     @Published var weather: Set<String> = []
     @Published var location: String = ""
-    
+    @Published var selectedMenu: String = ""
+
     // 여기에 필요한 초기화 메서드나 함수를 추가할 수 있습니다.
 }

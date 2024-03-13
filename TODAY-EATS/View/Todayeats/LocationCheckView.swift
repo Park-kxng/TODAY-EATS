@@ -90,6 +90,7 @@ struct LocationCheckView: View {
                         NavigationLink {
                             ResultView(navigationManager : navigationManager)
                                 .navigationTitle("이전 단계로")
+                                .environmentObject(selectionModel)
 
                         } label: {
                             Spacer()

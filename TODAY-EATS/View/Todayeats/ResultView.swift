@@ -13,7 +13,10 @@ import SwiftUI
 
 
 
+
 struct ResultView: View {
+    @EnvironmentObject var selectionModel: SelectionModel
+
     var navigationManager: NavigationManager
 
     @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
@@ -24,7 +27,7 @@ struct ResultView: View {
     let title : String = "오늘도 맛있는 한 끼 되세요!"
     let subTitle = "투데이츠 추천 메뉴 중 하나를 선택하면 \n추천맛집을 검색할 수 있어요"
 
-    let buttonTitles : [String] = ["마라탕", "스파게티", "떡볶이"]
+    @State var buttonTitles : [String] = ["마라탕", "스파게티", "떡볶이"]
     let buttonLines : [ClosedRange<Int>] = [1...4, 5...8]
         @State private var selectedCuisines: Set<String> = []
         @State private var nextButtonEnabled: Bool = false
@@ -66,7 +69,11 @@ struct ResultView: View {
                     
                     ForEach(0..<buttonTitles.count, id: \.self) { index in
                         createButton(index: index)
-                    }
+                    }.onAppear {
+                        fetchFoodRecommendation(custom: selectionModel) { foods in
+                            self.buttonTitles = foods
+                            
+                        }}
                     
                     Spacer()
                         
@@ -112,22 +119,19 @@ struct ResultView: View {
                     
                 
                
-            }.onAppear {
-                // Example logic to enable button - replace with your actual logic
-                nextButtonEnabled = !(selectedItem == nil)
-            }
+                }
             .navigationTitle("이전 단계로")
             
         }
        
     func createButton (index : Int) -> some View {
         HStack {
-            let title  = buttonTitles[index]                        
+            let title  = buttonTitles[index]
             let selected = (selectedItem == title)
 
             
             SmallButton( viewName:"result", title: title, isSelected: selected) {
-                
+                selectionModel.selectedMenu = selectedItem ?? ""
                 // 버튼이 클릭되었을 때의 동작
                if selectedItem == title {
                    // 이미 선택된 항목을 다시 클릭한 경우, 선택을 해제합니다.
@@ -141,4 +145,52 @@ struct ResultView: View {
         
             }
         }
+    
+    // ChatGPT API를 사용하여 음식 추천을 받는 함수
+    func fetchFoodRecommendation(custom : SelectionModel,completion: @escaping ([String]) -> Void) {
+        let customString = "\(custom.cuisine.joined(separator: ", ")), 매운 정도: \(custom.spicy), 기름진 정도: \(custom.oily), 장소: \(custom.place.joined(separator: ", ")), 날씨: \(custom.weather.joined(separator: ", "))"
+        let url = URL(string: "https://api.openai.com/v1/chat/completions")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("Bearer key", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let prompt = "추천해줘, 오늘 먹을 음식 3개는? 무조건 답변은 음식의 이름만 답변해줘. 예를 들어, 파스타 된장국 케밥 이렇게. 제시하는 키워드는 \(customString)"
+        let body = [
+            "messages": [
+                    ["role": "system", "content": "You are a helpful assistant."],
+                    ["role": "user", "content": prompt],
+           
+                ],
+            "model" : "gpt-3.5-turbo",
+            "max_tokens": 20,
+            "temperature": 0.7
+        ] as [String : Any]
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let choices = json["choices"] as? [[String: Any]],
+                   let firstChoice = choices.first,
+                   let message = firstChoice["message"] as? [String: Any],
+                   let content = message["content"] as? String {
+                    // 추천된 음식 목록을 파싱하여 반환
+                    let recommendations = content.components(separatedBy: " ")
+                    print(recommendations)
+
+                    DispatchQueue.main.async {
+                        completion(recommendations)
+                    }
+                }
+            } catch {
+                print("Failed to decode JSON: \(error)")
+            }
+        }.resume()
     }
+}
