@@ -48,44 +48,19 @@ import Firebase
 @main
 struct TODAY_EATSApp: App {
     
-    @StateObject var authService : AuthService
+    @StateObject var authService = AuthService() // Initialize AuthService
 
-    // 1. Add StateObject authManager.
 
     init() {
         FirebaseApp.configure()
-        let authService = AuthService()
-        _authService = StateObject(wrappedValue: authService)
-        print(authService.authState)
-        if UserDefaults.standard.bool(forKey: "login"){
-            authService.authState = .signedIn
-        }else{
-            authService.authState = .signedOut
 
-        }
-        
         
     }
     
     var body: some Scene {
-        WindowGroup {
-//            HomeView()
-//            if onBoardingManager.isOnboardingCompleted {
-//                HomeView()
-//                ContentView().environmentObject(onBoardingManager) // 환경 객체로 추가
-//                    .environmentObject(onBoardingManager)
-//                    .environmentObject(authService)
-//            } else {
-            if authService.authState != .signedOut {
-                HomeView()
-            }else{
-                LoginView()
-//                    .environmentObject(onBoardingManager)
-                    .environmentObject(authService)
-            }
-               
-
-//            }
+        WindowGroup{
+            ContentView() .environmentObject(authService) // Provide AuthService as an EnvironmentObject
         }
+        
     }
 }

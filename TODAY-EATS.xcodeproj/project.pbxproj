@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2026A6642BA1FCEF0036964C /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6632BA1FCEF0036964C /* SelectionModel.swift */; };
+		2026A6662BA2067A0036964C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6652BA2067A0036964C /* SplashView.swift */; };
+		2026A6682BA216E70036964C /* TodayEatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6672BA216E70036964C /* TodayEatsView.swift */; };
 		202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */; };
 		202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */; };
 		202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */; };
@@ -76,6 +79,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2026A6632BA1FCEF0036964C /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
+		2026A6652BA2067A0036964C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		2026A6672BA216E70036964C /* TodayEatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEatsView.swift; sourceTree = "<group>"; };
 		202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 			children = (
 				202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */,
 				202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */,
+				2026A6632BA1FCEF0036964C /* SelectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,12 +244,13 @@
 			isa = PBXGroup;
 			children = (
 				205AE8F62B9A726B0022A1E2 /* ContentView.swift */,
+				2026A6652BA2067A0036964C /* SplashView.swift */,
 				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				20D4E7D72BA09FF5000B3257 /* HomeView.swift */,
 				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
+				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
 				20D2AD732B9F7BFE006B5A3B /* Community */,
 				20D2AD682B9EE85C006B5A3B /* OnBoarding */,
-				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 		20D2AD482B9DD4CC006B5A3B /* Todayeats */ = {
 			isa = PBXGroup;
 			children = (
+				2026A6672BA216E70036964C /* TodayEatsView.swift */,
 				20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */,
 				20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */,
 				20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */,
@@ -460,8 +469,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */,
+				2026A6682BA216E70036964C /* TodayEatsView.swift in Sources */,
 				20D4E7D82BA09FF5000B3257 /* HomeView.swift in Sources */,
 				20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */,
+				2026A6642BA1FCEF0036964C /* SelectionModel.swift in Sources */,
 				202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */,
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
 				20D2AD782B9FDB40006B5A3B /* LocationViewModel.swift in Sources */,
@@ -481,6 +492,7 @@
 				20D2AD6E2B9EE89D006B5A3B /* OnBoarding3View.swift in Sources */,
 				20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */,
 				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
+				2026A6662BA2067A0036964C /* SplashView.swift in Sources */,
 				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
@@ -673,6 +685,7 @@
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pky.todayEats;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TODAY EATS Development";

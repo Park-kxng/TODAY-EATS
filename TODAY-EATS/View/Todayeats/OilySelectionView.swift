@@ -10,6 +10,8 @@ import SwiftUI
 
 
 struct OilySelectionView : View {
+    @EnvironmentObject var selectionModel: SelectionModel
+
     var navigationManager: NavigationManager
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
@@ -56,6 +58,7 @@ struct OilySelectionView : View {
                         
                         NavigationLink {
                             PlaceSelectionView(navigationManager : navigationManager)
+                                .environmentObject(selectionModel)
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -78,9 +81,15 @@ struct OilySelectionView : View {
                 
                
             }.onAppear {
-                    // Example logic to enable button - replace with your actual logic
-                    nextButtonEnabled = !(selectedItem == nil)
-                }
+                print(selectionModel.spicy)
+                selectionModel.oily = selectedItem ?? ""
+                nextButtonEnabled = !(selectedItem == nil)
+            }
+            .onChange(of: selectedItem ?? "" , { oldValue, newValue in
+                selectionModel.oily = newValue
+                nextButtonEnabled = !newValue.isEmpty
+
+            })
             
         }
        

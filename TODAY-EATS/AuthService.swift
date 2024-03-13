@@ -3,19 +3,21 @@ import FirebaseAuth
 import CryptoKit
 import AuthenticationServices
 
-enum AuthState {
-    case authenticated // Anonymously authenticated in Firebase.
-    case signedIn // Authenticated in Firebase using one of service providers, and not anonymous.
-    case signedOut // Not authenticated in Firebase.
-}
+
 
 class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
+    
+    enum AuthState {
+        case authenticated // Anonymously authenticated in Firebase.
+        case signedIn // Authenticated in Firebase using one of service providers, and not anonymous.
+        case signedOut // Not authenticated in Firebase.
+    }
     
     @Published var signedIn: Bool = false
     @Published var signInSuccess: Bool = false // 로그인 성공 여부를 나타내는 새로운 상태 변수
     
     @Published var user: User?
-    @Published var authState = AuthState.signedOut
+    @Published var authState : AuthState = .signedOut
     
     private var authStateHandle: AuthStateDidChangeListenerHandle!
 
@@ -27,11 +29,13 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
 
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
+                self.authState = .signedIn
                 self.signedIn = true
                 print("Auth state changed, is signed in")
 
             } else {
                 self.signedIn = false
+                self.authState = .signedOut
                 print("Auth state changed, is signed out")
             }
         }

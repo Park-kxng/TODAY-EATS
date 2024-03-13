@@ -9,23 +9,21 @@
 import SwiftUI
 
 struct CuisineSelectionView: View {
-    init(){
-        makeNavigationBarTransparent()
-    }
-    @StateObject private var navigationManager = NavigationManager()
+    var navigationManager: NavigationManager
 
-        @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
-        @State private var isNavigationActive = false
-        @State private var selectedItem: String? = nil
-        @State private var navigationValue: NavigationDestination?
+    @EnvironmentObject var selectionModel: SelectionModel
+    @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
+    @State private var isNavigationActive = false
+    @State private var selectedItem: String? = nil
+    @State private var navigationValue: NavigationDestination?
 
     let title : String = "먹고 싶은 음식의 종류는?"
     let subTitle = "복수 선택 가능해요!"
 
     let buttonTitles : [String] = ["한식", "중식", "일식", "양식", "아시아 음식", "분식", "카페", "기타"]
     let buttonLines : [ClosedRange<Int>] = [1...4, 5...8]
-        @State private var selectedCuisines: Set<String> = []
-        @State private var nextButtonEnabled: Bool = false
+    @State private var selectedCuisines: Set<String> = []
+    @State private var nextButtonEnabled: Bool = false
     
     let fontColor = Color.teMidGray
     let fontColorClicked = Color.white
@@ -34,7 +32,6 @@ struct CuisineSelectionView: View {
 
         var body: some View {
             
-            NavigationStack(path: $navigationManager.path) {
                 
                 VStack{
                     Spacer()
@@ -59,39 +56,51 @@ struct CuisineSelectionView: View {
                     
                     HStack{
                         Spacer().frame(width: 15)
-                        HStack{
+                        
+                        NavigationLink {
+                            SpicySelectionView(navigationManager : navigationManager)
+                                .navigationTitle("이전 단계로")
+                                .environmentObject(selectionModel)
+
+                        } label: {
                             Spacer()
-                            NavigationLink("다음 단계로", value: "Spicy")
-                                                            .font(.teFont18M())
-                                                            .foregroundColor(nextButtonEnabled ? fontColorClicked : fontColor)
-                                                            .disabled(!nextButtonEnabled)
-                                                            .navigationTitle("이전 단계로")
+                            Text("다음 단계로")
+                                .font(.teFont18M())
+                                .foregroundColor(nextButtonEnabled ? fontColorClicked : fontColor)
                             Spacer()
                         }.frame(height: 56.0)
                             .background(nextButtonEnabled ? backgroundClicked : backgroundColor)
                             .cornerRadius(12)
-                    
+                            .disabled(!nextButtonEnabled)
 
-                        
                         Spacer().frame(width: 15)
-                        
+
                     }
                     Spacer().frame(height: 20.0)
                     
                     
                     
-                }.onAppear {
-                    // Example logic to enable button - replace with your actual logic
-                    nextButtonEnabled = !selectedCuisines.isEmpty
-                } .navigationDestination(for: String.self) { str in
+                }
+                .navigationDestination(for: String.self) { str in
                     switch str {
-                    case "Spicy": SpicySelectionView(navigationManager: navigationManager)
+                    case "next": CuisineSelectionView(navigationManager: navigationManager)
                     default: EmptyView()
                     }
-                }
+                
             }
+                .onAppear {
+                    // Example logic to enable button - replace with your actual logic
+                    selectionModel.cuisine = selectedCuisines
+                    print(selectionModel.cuisine)
+                    nextButtonEnabled = !selectedCuisines.isEmpty
+                }.onChange(of: selectedCuisines, { oldValue, newValue in
+                    selectionModel.cuisine = newValue
+                    nextButtonEnabled = !newValue.isEmpty
+
+                })
+               
             
-        }
+}
        
         func createButtonRow(range : ClosedRange<Int>) -> some View {
                 HStack {
@@ -142,5 +151,5 @@ struct CuisineSelectionView: View {
     }
 
 #Preview {
-    CuisineSelectionView()
+    CuisineSelectionView(navigationManager: NavigationManager())
 }

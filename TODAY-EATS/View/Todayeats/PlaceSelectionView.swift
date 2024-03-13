@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct PlaceSelectionView: View {
+    @EnvironmentObject var selectionModel: SelectionModel
+
     var navigationManager: NavigationManager
 
         @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
@@ -55,6 +57,8 @@ struct PlaceSelectionView: View {
                         
                         NavigationLink {
                             WeatherSelectionView(navigationManager : navigationManager)
+                                .environmentObject(selectionModel)
+
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -76,9 +80,15 @@ struct PlaceSelectionView: View {
                 
                
             }.onAppear {
-                // Example logic to enable button - replace with your actual logic
+                print(selectionModel.oily)
+                selectionModel.place = selectedCuisines
                 nextButtonEnabled = !selectedCuisines.isEmpty
             }
+            .onChange(of: selectedCuisines , { oldValue, newValue in
+                selectionModel.place = newValue
+                nextButtonEnabled = !newValue.isEmpty
+
+            })
             
         }
        

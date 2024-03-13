@@ -23,9 +23,9 @@ struct HomeView: View {
                     if selectedTab == 0 {
                         CommunityView()
                     } else if selectedTab == 1 {
-                      CuisineSelectionView()
+                        TodayEatsView()
                     } else if selectedTab == 2 {
-                        MyPageView()
+                        MyPageView().environmentObject(AuthService())
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

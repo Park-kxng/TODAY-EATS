@@ -44,7 +44,7 @@ struct LoginView : View {
                     .font(.teFont18M())
                     .foregroundColor(Color.teMidGray)
                     .kerning(-0.2)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
                 
                 Spacer().frame(minHeight: 30, maxHeight: 120)

@@ -26,6 +26,8 @@ struct MapView: UIViewRepresentable {
     }
 }
 struct LocationCheckView: View {
+    @EnvironmentObject var selectionModel: SelectionModel
+
     var navigationManager: NavigationManager
 
     @StateObject private var locationViewModel = LocationViewModel()
@@ -88,6 +90,7 @@ struct LocationCheckView: View {
                         NavigationLink {
                             ResultView(navigationManager : navigationManager)
                                 .navigationTitle("이전 단계로")
+
                         } label: {
                             Spacer()
                             Text("다음 단계로")
@@ -113,6 +116,10 @@ struct LocationCheckView: View {
                
             } .task() {
                 await startTask()
+                
+            }.onAppear {
+                print(selectionModel)
+               
             }
             
             

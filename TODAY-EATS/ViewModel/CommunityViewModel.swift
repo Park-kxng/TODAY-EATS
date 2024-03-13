@@ -27,7 +27,7 @@ class CommunityViewModel: ObservableObject {
                 let data = document.data()
                 let rating = data["rating"] as? Int ?? 0
                 let waiting = data["waiting"] as? Int ?? 0
-                
+                print(data)
                 return FeedModel(
                     id: document.documentID,
                     userID : data["userID"] as? String ?? "",

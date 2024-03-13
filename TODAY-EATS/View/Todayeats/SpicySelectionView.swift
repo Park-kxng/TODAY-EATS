@@ -7,28 +7,29 @@
 import SwiftUI
 
 struct SpicySelectionView: View {
- 
+   
+    @EnvironmentObject var selectionModel: SelectionModel
 
     var navigationManager: NavigationManager
 
-        @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
-        @State private var isNavigationActive = false
-        @State private var selectedItem: String? = nil
-        @State private var navigationValue: NavigationDestination?
-
+    @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
+    @State private var isNavigationActive = false
+    @State private var selectedItem: String? = nil
+    @State private var navigationValue: NavigationDestination?
+    
     let title : String = "둘 중 하나만 선택해주세요!"
     let subTitle = "맵기"
-
     let buttonTitles : [String] = ["매운 거", "안 매운 거"]
     var buttonLines : [ClosedRange<Int>] = [1...2]
-        @State private var selectedCuisines: Set<String> = []
-        @State private var nextButtonEnabled: Bool = false
+    @State private var selectedCuisines: Set<String> = []
+    @State private var nextButtonEnabled: Bool = false
     
     let fontColor = Color.teMidGray
     let fontColorClicked = Color.white
     let backgroundColor = Color.teLightGray
     let backgroundClicked = Color.teBlack
-        var body: some View {
+
+    var body: some View {
                 
                 VStack{
                     Spacer()
@@ -57,6 +58,7 @@ struct SpicySelectionView: View {
                         NavigationLink {
                             OilySelectionView(navigationManager : navigationManager)
                                 .navigationTitle("이전 단계로")
+                                .environmentObject(selectionModel)
 
                         } label: {
                             Spacer()
@@ -77,9 +79,17 @@ struct SpicySelectionView: View {
                 
                
             }.onAppear {
-                // Example logic to enable button - replace with your actual logic
+                print(selectionModel.cuisine)
+                selectionModel.spicy = selectedItem ?? ""
                 nextButtonEnabled = !(selectedItem == nil)
             }
+            .onChange(of: selectedItem ?? "" , { oldValue, newValue in
+                selectionModel.spicy = newValue
+                nextButtonEnabled = !newValue.isEmpty
+
+            })
+            .navigationTitle("이전 단계로")
+
             
         }
        
@@ -104,6 +114,4 @@ struct SpicySelectionView: View {
             }
     }
 
-#Preview {
-    SpicySelectionView(navigationManager: NavigationManager())
-}
+

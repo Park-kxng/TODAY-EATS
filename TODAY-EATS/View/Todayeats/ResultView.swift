@@ -116,6 +116,7 @@ struct ResultView: View {
                 // Example logic to enable button - replace with your actual logic
                 nextButtonEnabled = !(selectedItem == nil)
             }
+            .navigationTitle("이전 단계로")
             
         }
        

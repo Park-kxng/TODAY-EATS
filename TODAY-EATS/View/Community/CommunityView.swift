@@ -9,10 +9,11 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-#Preview(body: {
-    CommunityView()
-})
-
+struct CommunityView_Previews: PreviewProvider {
+    static var previews: some View {
+        CommunityView()
+    }
+}
 
 
 struct CustomCorners: Shape {
@@ -26,7 +27,6 @@ struct CustomCorners: Shape {
 }
 struct CommunityView: View {
     @StateObject var viewModel = CommunityViewModel()
-    @StateObject var firestoreManager = FireStoreManager()
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedItem: FeedModel?
     @StateObject private var locationViewModel = LocationViewModel()
@@ -34,7 +34,17 @@ struct CommunityView: View {
         configureNavigationBarAppearance()
 
     }
-
+    // 별 모양을 생성하고 사용자 입력을 처리하는 함수
+    private func StarButton(index: Int, rating : Int) -> some View {
+        Button(action: {
+            // 사용자가 탭한 별의 인덱스를 기반으로 rating 값을 업데이트
+        }) {
+            // 별 모양을 표시, 채워진 별 또는 빈 별을 조건부로 표시
+            Image(index <= rating ? "star_fill" : "star_fill")
+                .renderingMode(.template)
+                .foregroundColor(index <= rating ? .teYellow : .teBlack.opacity(0.3))
+        }
+    }
     var body: some View {
         NavigationView {
             VStack(){
@@ -71,7 +81,7 @@ struct CommunityView: View {
                                         .foregroundColor(Color.teMidGray)
                                 }
                                 Spacer()
-                                    .frame(width: 4.0)
+                                    .frame(width: 10)
                                 NavigationLink(destination: CreatePostView().navigationTitle("투데이츠 입력")) {
                                         HStack {
                                             Image(systemName: "plus")
@@ -83,7 +93,7 @@ struct CommunityView: View {
                                 }
                            
                             }
-                            .frame(height: 24.0)
+                            .frame(height: 30)
                            
                         }
                         ToolbarItem(placement: .navigationBarLeading) {
@@ -202,12 +212,19 @@ struct FeedItemRow: View {
                       Spacer()
                           .frame(height: 0.0)
                       HStack {
-                          Text(String(item.rating))
-                              .foregroundColor(.yellow)
+                          ForEach(1...5, id: \.self) { index in
+                              // 별 모양을 표시, 채워진 별 또는 빈 별을 조건부로 표시
+                              Image(index <= item.rating ? "star_fill" : "star_fill")
+                                  .resizable()
+                                  .renderingMode(.template)
+                                  .foregroundColor( index <= item.rating ? .teYellow : .teBlack.opacity(0.3))
+                                  .frame(width: 14, height: 14) // 이미지 크기를 14x14로 설정
+
+                          }
                           Spacer()
                               .frame(width: 10.0)
                           
-                          Text(String(item.waiting))
+                          Text("\(item.waiting)분")
                               .foregroundColor(.teMidGray)
                               .font(.teFont11SM())
                               .padding(.horizontal, 10.0)
