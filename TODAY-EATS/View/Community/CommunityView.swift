@@ -12,23 +12,9 @@ import CoreLocation
 #Preview(body: {
     CommunityView()
 })
-// 피드 아이템을 나타내는 데이터 모델
-struct FeedItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let description: String
-    let imageName: String
-    let rating: String
-    let waiting: String
-}
 
-// 더미 데이터
-let feedItems = [
-    FeedItem(title: "맛도리만 찾아다님", description: "오늘도 맛집 탐방!", imageName: "img_charc", rating: "★★★☆☆", waiting: "10분"),
-    FeedItem(title: "미식생 해고싶다", description: "마라탕은 역시 탕화라", imageName: "img_charc", rating: "★★★★☆", waiting: "15분"),
-    FeedItem(title: "맛집 마스터", description: "겨울에 팥빙수를 먹어보았다", imageName: "img_charc", rating: "★★★☆☆", waiting: "20분"),
-    // ... 여기에 더 많은 피드 아이템이 있을 수 있습니다.
-]
+
+
 struct CustomCorners: Shape {
     var corners: UIRectCorner
     var radius: CGFloat
@@ -39,13 +25,14 @@ struct CustomCorners: Shape {
     }
 }
 struct CommunityView: View {
+    @StateObject var viewModel = CommunityViewModel()
     @StateObject var firestoreManager = FireStoreManager()
     @Environment(\.presentationMode) var presentationMode
-    @State private var selectedItem: FeedItem?
+    @State private var selectedItem: FeedModel?
     @StateObject private var locationViewModel = LocationViewModel()
-
     init() {
         configureNavigationBarAppearance()
+
     }
 
     var body: some View {
@@ -61,14 +48,16 @@ struct CommunityView: View {
                                    .edgesIgnoringSafeArea(.all) // 배경색이 전체 화면을 채우도록 설정
                     ScrollView {
                         VStack(spacing: 0) {
-                            ForEach(feedItems) { item in
+                            ForEach(viewModel.feeds) { item in
                                 Button(action: {
                                     self.selectedItem = item
                                 }) {
                                     FeedItemRow(item: item)
                                 }
                                 .buttonStyle(PlainButtonStyle()) // Removes the button's default styling
+                                
                             }
+  
                         }
                     }
                     .toolbar {
@@ -128,9 +117,13 @@ struct CommunityView: View {
                 }
                 .background(Color.teCommunityBG)
         }
+        .onAppear {
+            viewModel.fetchFeeds()// ViewModel에서 feed 데이터를 불러오는 함수 호출
+        }
 
             
     }
+    
     }
 
     private func configureNavigationBarAppearance() {
@@ -148,7 +141,7 @@ struct CommunityView: View {
 
 
 struct FeedItemRow: View {
-    let item: FeedItem
+    let item: FeedModel
 
     var body: some View {
         ScrollView {
@@ -170,7 +163,7 @@ struct FeedItemRow: View {
                       .frame(width: 10)
                   
                   VStack(alignment: .leading){
-                      Text(item.title)
+                      Text(item.userName)
                           .font(.teFont14SM())
                           .foregroundColor(Color.teBlack)
                           .frame(height: 18.0)
@@ -192,7 +185,7 @@ struct FeedItemRow: View {
               HStack(alignment: .top) {
                   Spacer().frame(width: 26)
                   // 게시물 이미지
-                  Image(item.imageName)
+                  Image("img_charc")
                       .resizable()
                       .scaledToFit()
                       .frame(width: 124, height: 124)
@@ -202,19 +195,19 @@ struct FeedItemRow: View {
 
                   // 게시물 텍스트
                   VStack(alignment: .leading, spacing: 5) {
-                      Text(item.description)
+                      Text(item.feedTitle)
                           .font(.teFont14SM())
                           .foregroundColor(Color.teBlack)
                           .frame(height: 23)
                       Spacer()
                           .frame(height: 0.0)
                       HStack {
-                          Text(item.rating)
+                          Text(String(item.rating))
                               .foregroundColor(.yellow)
                           Spacer()
                               .frame(width: 10.0)
                           
-                          Text(item.waiting)
+                          Text(String(item.waiting))
                               .foregroundColor(.teMidGray)
                               .font(.teFont11SM())
                               .padding(.horizontal, 10.0)
@@ -275,28 +268,28 @@ struct FeedItemRow: View {
 }
 
 struct DetailView: View {
-    let feedItem: FeedItem
+    let feedItem: FeedModel
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Image(feedItem.imageName)
+                Image("img_charc")
                     .resizable()
                     .scaledToFit()
 
-                Text(feedItem.title)
+                Text(feedItem.feedTitle)
                     .font(.title)
                     .padding()
 
-                Text(feedItem.description)
+                Text(feedItem.feedMemo)
                     .padding()
-                Text(feedItem.rating)
+                Text("\(feedItem.rating)")
                     .padding()
-                Text(feedItem.description)
+                Text("\(feedItem.waiting)")
                     .padding()
                 // 여기에 더 많은 세부 정보를 추가할 수 있습니다.
             }
         }
-        .navigationTitle(feedItem.title)
+        .navigationTitle("자세히 보기")
     }
 }

@@ -10,17 +10,20 @@ import SwiftUI
 
 struct CreatePostView: View {
     // 이전 화면으로 돌아가기 위한 presentationMode 환경 변수
+    @ObservedObject var viewModel = CommunityViewModel()
     @Environment(\.presentationMode) var presentationMode
+    
+    // 초기화
     @State private var location: String = ""
     @State private var title: String = ""
     @State private var waitingTime: String = ""
     @State private var content: String = ""
     @State private var selectedImage: UIImage?
-    @State private var isImagePickerDisplayed = false
     @State private var rating: Int = 0
     @State private var rating2: Float = 0
-
     @State private var widthSize : CGFloat = 0
+    
+    @State private var isImagePickerDisplayed = false
     @State private var contentPlaceHolder: String = " 내용"
 
     // 별 모양을 생성하고 사용자 입력을 처리하는 함수
@@ -211,7 +214,25 @@ struct CreatePostView: View {
             HStack{
                 Spacer().frame(width: 15.0)
                 Button(action: {
+                    // FeedModel 인스턴스 생성
+                     let newFeed = FeedModel(
+                         id: UUID().uuidString, // Firestore에 추가할 때는 id 필드가 필요하지만, 실제로 데이터를 추가할 때는 이 필드를 사용하지 않습니다.
+                         userID: "사용자 ID", // 현재 로그인한 사용자의 ID로 대체해야 합니다.
+                         userName: "사용자 이름", // 현재 로그인한 사용자의 이름으로 대체해야 합니다.
+                         feedTitle: title,
+                         feedMemo: content,
+                         time: "\(Date())", // 실제 앱에서는 Date 객체를 적절한 문자열로 변환해야 합니다.
+                         resName: "레스토랑 이름", // 필요한 경우 사용자로부터 입력받거나 다른 방식으로 설정
+                         location: location,
+                         rating: rating,
+                         waiting: Int(waitingTime) ?? 0 // waitingTime은 String이므로 Int로 변환
+                     )
+
+                     // FirestoreManager를 통해 Firestore에 데이터 추가
+                     viewModel.addFeed(feed: newFeed)
+
                     self.presentationMode.wrappedValue.dismiss()
+                    
                 }) {
                     Spacer()
                     Text("완료").font(.teFont18M())

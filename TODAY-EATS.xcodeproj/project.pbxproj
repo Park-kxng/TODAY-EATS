@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */; };
+		202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */; };
+		202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */; };
+		202D7ED42BA1E6E200CAE603 /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ED32BA1E6E200CAE603 /* CommunityViewModel.swift */; };
 		205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */; };
 		205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F62B9A726B0022A1E2 /* ContentView.swift */; };
 		205AE8FB2B9A726C0022A1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */; };
@@ -74,6 +77,9 @@
 
 /* Begin PBXFileReference section */
 		202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
+		202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		202D7ED32BA1E6E200CAE603 /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
 		205AE8F12B9A726B0022A1E2 /* TODAY-EATS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODAY-EATS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSApp.swift; sourceTree = "<group>"; };
 		205AE8F62B9A726B0022A1E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +157,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		202D7ECE2BA1E5B600CAE603 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */,
+				202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		205AE8E82B9A726B0022A1E2 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +198,7 @@
 				202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */,
 				20D4E7C12BA076CC000B3257 /* AuthService.swift */,
 				20D2AD662B9E6636006B5A3B /* Custom */,
+				202D7ECE2BA1E5B600CAE603 /* Model */,
 				20D2AD762B9FDB19006B5A3B /* ViewModel */,
 				20D2AD472B9DD4B2006B5A3B /* View */,
 				205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */,
@@ -288,6 +304,7 @@
 			children = (
 				20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */,
 				20D4E7BF2BA06FBD000B3257 /* LoginViewModel.swift */,
+				202D7ED32BA1E6E200CAE603 /* CommunityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -445,9 +462,11 @@
 				20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */,
 				20D4E7D82BA09FF5000B3257 /* HomeView.swift in Sources */,
 				20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */,
+				202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */,
 				20EFDC952B9B67B60091C49F /* Desgin.swift in Sources */,
 				20D2AD782B9FDB40006B5A3B /* LocationViewModel.swift in Sources */,
 				20D2AD6A2B9EE878006B5A3B /* OnBoarding1View.swift in Sources */,
+				202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */,
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
 				20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */,
@@ -456,6 +475,7 @@
 				20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */,
 				20D2AD4E2B9DEB94006B5A3B /* NextButton.swift in Sources */,
 				20D2AD5A2B9E383D006B5A3B /* PlaceSelectionView.swift in Sources */,
+				202D7ED42BA1E6E200CAE603 /* CommunityViewModel.swift in Sources */,
 				20D2AD502B9DF61F006B5A3B /* SpicySelectionView.swift in Sources */,
 				202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */,
 				20D2AD6E2B9EE89D006B5A3B /* OnBoarding3View.swift in Sources */,

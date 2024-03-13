@@ -28,6 +28,7 @@ class LocationViewModel: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
         // 예: UserDefaults, CoreData, 서버 등
         print("Updated Location: \(latestLocation)")
         reverseGeocodeLocation(location: latestLocation)
+        stopUpdatingLocation()
     }
     // 위치 업데이트 중지 메서드
     func stopUpdatingLocation() {
