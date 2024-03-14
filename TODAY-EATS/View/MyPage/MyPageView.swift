@@ -34,32 +34,42 @@ struct MyPageView: View {
                                 .cornerRadius(5)
 
                             ForEach(section.items, id: \.self) { item in
-                                NavigationLink(destination: detailView(for: item)) {
-                                    // 클릭 가능한 영역을 정의
-                                      HStack {
-                                          Text(item)
-                                              .foregroundColor(Color.teBlack)
-                                              .padding()
-                                              .font(.teFont16M())
-                                              .kerning(-0.2)
-                                          Spacer()
-                                          Image(systemName: "chevron.right")
-                                              .foregroundColor(Color.teMypageGray)
-                                          Spacer()
-                                              .frame(width: 10.0)
-
-                                      }
-                                      .frame(maxWidth: .infinity)
-                                      .background(Color.white) // 배경색 설정
-                                      .cornerRadius(5)
+                                switch item {
+                                case "로그아웃":
+                                    LogOutView(action:  {
+                                        signOut()
+                                    })
+                                  
+                                case "탈퇴하기":
+                                    SignOutView(action:  {
+                                        delete()
+                                    })
                                     
-                                   
+                                default:
+                                    NavigationLink(destination: detailView(for: item)) {
+                                        // 클릭 가능한 영역을 정의
+                                          HStack {
+                                              Text(item)
+                                                  .foregroundColor(Color.teBlack)
+                                                  .padding()
+                                                  .font(.teFont16M())
+                                                  .kerning(-0.2)
+                                              Spacer()
+                                              Image(systemName: "chevron.right")
+                                                  .foregroundColor(Color.teMypageGray)
+                                              Spacer()
+                                                  .frame(width: 10.0)
 
-                                        
-                                    
+                                          }
+                                          .frame(maxWidth: .infinity)
+                                          .background(Color.white) // 배경색 설정
+                                          .cornerRadius(5)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .cornerRadius(5)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .cornerRadius(5)
+                                
+                           
                             }
                         }
                         .padding(.horizontal)
@@ -110,14 +120,10 @@ struct MyPageView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
                     .navigationBarItems(leading: BackButton(title: "이전"))
-            case "로그아웃":
-                Button("로그아웃 시도 중"){
-                    signOut()
-                }
-            case "탈퇴하기":
-                Button("탈퇴하기 시도 중"){
-                    delete()
-                }
+        
+            case "1:1 문의하기":
+                ContactUsView()
+           
             default:
                 Text("\(item) 상세 화면")
             }

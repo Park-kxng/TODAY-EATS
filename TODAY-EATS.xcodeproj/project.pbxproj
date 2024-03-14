@@ -20,6 +20,9 @@
 		2026A6792BA38B070036964C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2026A6782BA38B070036964C /* Config.xcconfig */; };
 		2026A67B2BA395F10036964C /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A67A2BA395F10036964C /* TermsAndConditionsView.swift */; };
 		2026A67D2BA396F10036964C /* PrivacyPolicyView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A67C2BA396F00036964C /* PrivacyPolicyView .swift */; };
+		2026A67F2BA39D660036964C /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A67E2BA39D660036964C /* ContactUsView.swift */; };
+		2026A6812BA3A2910036964C /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6802BA3A2910036964C /* LogOutView.swift */; };
+		2026A6832BA3A4110036964C /* SignOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6822BA3A4110036964C /* SignOutView.swift */; };
 		202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */; };
 		202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */; };
 		202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */; };
@@ -100,6 +103,9 @@
 		2026A6782BA38B070036964C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = "TODAY-EATS/ViewModel/Config.xcconfig"; sourceTree = "<group>"; };
 		2026A67A2BA395F10036964C /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		2026A67C2BA396F00036964C /* PrivacyPolicyView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrivacyPolicyView .swift"; sourceTree = "<group>"; };
+		2026A67E2BA39D660036964C /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
+		2026A6802BA3A2910036964C /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
+		2026A6822BA3A4110036964C /* SignOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutView.swift; sourceTree = "<group>"; };
 		202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 				2026A6702BA339370036964C /* MyPostView.swift */,
 				2026A67A2BA395F10036964C /* TermsAndConditionsView.swift */,
 				2026A67C2BA396F00036964C /* PrivacyPolicyView .swift */,
+				2026A67E2BA39D660036964C /* ContactUsView.swift */,
+				2026A6802BA3A2910036964C /* LogOutView.swift */,
+				2026A6822BA3A4110036964C /* SignOutView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				20D2AD6A2B9EE878006B5A3B /* OnBoarding1View.swift in Sources */,
 				2026A67D2BA396F10036964C /* PrivacyPolicyView .swift in Sources */,
 				202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */,
+				2026A6832BA3A4110036964C /* SignOutView.swift in Sources */,
 				2026A6732BA34B9B0036964C /* BackButton.swift in Sources */,
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
@@ -536,10 +546,12 @@
 				20D2AD522B9DF6C6006B5A3B /* SelectionView.swift in Sources */,
 				20D2AD462B9DC804006B5A3B /* MyPageView.swift in Sources */,
 				2026A6662BA2067A0036964C /* SplashView.swift in Sources */,
+				2026A67F2BA39D660036964C /* ContactUsView.swift in Sources */,
 				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
 				2026A66F2BA330290036964C /* UserViewModel.swift in Sources */,
 				2026A66D2BA32CB50036964C /* ProfileView.swift in Sources */,
+				2026A6812BA3A2910036964C /* LogOutView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
 				20D4E7C22BA076CC000B3257 /* AuthService.swift in Sources */,
 				2026A67B2BA395F10036964C /* TermsAndConditionsView.swift in Sources */,

@@ -46,6 +46,7 @@ import SwiftUI
 import Firebase
 
 @main
+
 struct TODAY_EATSApp: App {
     
     @StateObject var authService = AuthService() // Initialize AuthService
