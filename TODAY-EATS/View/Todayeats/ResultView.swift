@@ -164,11 +164,13 @@ struct ResultView: View {
     
     // ChatGPT API를 사용하여 음식 추천을 받는 함수
     func fetchFoodRecommendation(custom : SelectionModel,completion: @escaping ([String]) -> Void) {
+        let CHATGPTkey = Bundle.main.infoDictionary?["CHATGPTkey"] as! String
+
         let customString = "\(custom.cuisine.joined(separator: ", ")), 매운 정도: \(custom.spicy), 기름진 정도: \(custom.oily), 장소: \(custom.place.joined(separator: ", ")), 날씨: \(custom.weather.joined(separator: ", "))"
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("Bearer ", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(CHATGPTkey)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let menus = """
         한식: 김치찌개, 된장찌개, 비빔밥, 삼겹살, 불고기, 갈비탕, 해장국, 순두부찌개, 청국장, 보쌈, 족발, 곱창, 제육볶음, 국수, 부침개, 찜닭, 돌솥밥, 육회, 냉면, 감자탕
@@ -187,8 +189,10 @@ struct ResultView: View {
         답변 예시 1. 파스타 된장국 케밥
         답변 예시 2. 스테이크 리조토 치킨
         답변 예시 3. 짜장면 짬뽕 탕수육
+        절대 , 표시는 넣지 마세요. 절대 , 표시는 넣지 마세요. 절대 , 표시는 넣지 마세요.
         
-        그리고, 당신은 아래의 레퍼런스를 참고해야 합니다.
+        그리고, 당신은 아래의 레퍼런스를 참고해야 합니다. 더 좋은 메뉴가 있다면 당신이 추천해줘도 좋습니다.
+        한국이 가장 많이 먹는 외식 메뉴 순으로 추천해줬으면 좋겠습니다.
         \(menus)
         """
         let prompt = """

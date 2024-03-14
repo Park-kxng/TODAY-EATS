@@ -87,6 +87,29 @@ struct MyPageView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
                     .navigationBarItems(leading: BackButton(title: "이전"))
+            case "앱 버전":
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    Text("투데이츠의 앱 버전은 \(version)입니다")
+                        .font(.teFont16M())
+                        .foregroundColor(Color.teBlack)
+                        .multilineTextAlignment(.center)
+                        .navigationTitle("앱 버전")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                        .navigationBarItems(leading: BackButton(title: "이전"))
+                }
+            case "약관 및 정책":
+                TermsAndConditionsView()
+                    .navigationTitle("약관 및 정책")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                    .navigationBarItems(leading: BackButton(title: "이전"))
+            case "개인정보 처리 방침":
+                PrivacyPolicyView()
+                    .navigationTitle("개인정보 처리 방침")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                    .navigationBarItems(leading: BackButton(title: "이전"))
             case "로그아웃":
                 Button("로그아웃 시도 중"){
                     signOut()
