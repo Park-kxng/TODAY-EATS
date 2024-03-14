@@ -59,7 +59,6 @@ struct CuisineSelectionView: View {
                         
                         NavigationLink {
                             SpicySelectionView(navigationManager : navigationManager)
-                                .navigationTitle("이전 단계로")
                                 .environmentObject(selectionModel)
 
                         } label: {

@@ -57,7 +57,7 @@ struct OilySelectionView : View {
                         Spacer().frame(width: 15)
                         
                         NavigationLink {
-                            PlaceSelectionView(navigationManager : navigationManager)
+                            WeatherSelectionView(navigationManager : navigationManager)
                                 .environmentObject(selectionModel)
                         } label: {
                             Spacer()

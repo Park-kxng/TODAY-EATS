@@ -56,7 +56,7 @@ struct PlaceSelectionView: View {
                         Spacer().frame(width: 15)
                         
                         NavigationLink {
-                            WeatherSelectionView(navigationManager : navigationManager)
+                            RestaurantView(navigationManager : navigationManager)
                                 .environmentObject(selectionModel)
 
                         } label: {

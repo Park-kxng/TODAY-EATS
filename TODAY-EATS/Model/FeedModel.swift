@@ -21,6 +21,10 @@ struct FeedModel : Identifiable, Codable {
     var location: String
     var rating: Int
     var waiting: Int
+    var administrativeArea: String
+    var locality: String
+    var subLocality: String
     
 
 }
+

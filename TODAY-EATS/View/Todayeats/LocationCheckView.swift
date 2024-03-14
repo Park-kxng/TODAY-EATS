@@ -88,7 +88,7 @@ struct LocationCheckView: View {
                         Spacer().frame(width: 15)
                         
                         NavigationLink {
-                            ResultView(navigationManager : navigationManager)
+                            PlaceSelectionView(navigationManager : navigationManager)
                                 .navigationTitle("이전 단계로")
                                 .environmentObject(selectionModel)
 

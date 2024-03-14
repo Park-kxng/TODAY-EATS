@@ -10,6 +10,10 @@
 		2026A6642BA1FCEF0036964C /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6632BA1FCEF0036964C /* SelectionModel.swift */; };
 		2026A6662BA2067A0036964C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6652BA2067A0036964C /* SplashView.swift */; };
 		2026A6682BA216E70036964C /* TodayEatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6672BA216E70036964C /* TodayEatsView.swift */; };
+		2026A66A2BA317330036964C /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6692BA317320036964C /* RestaurantView.swift */; };
+		2026A66D2BA32CB50036964C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A66C2BA32CB50036964C /* ProfileView.swift */; };
+		2026A66F2BA330290036964C /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A66E2BA330280036964C /* UserViewModel.swift */; };
+		2026A6712BA339370036964C /* MyPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026A6702BA339370036964C /* MyPostView.swift */; };
 		202D7ECD2BA0E40000CAE603 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */; };
 		202D7ED02BA1E5CD00CAE603 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */; };
 		202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */; };
@@ -82,6 +86,10 @@
 		2026A6632BA1FCEF0036964C /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		2026A6652BA2067A0036964C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2026A6672BA216E70036964C /* TodayEatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEatsView.swift; sourceTree = "<group>"; };
+		2026A6692BA317320036964C /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		2026A66C2BA32CB50036964C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2026A66E2BA330280036964C /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		2026A6702BA339370036964C /* MyPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostView.swift; sourceTree = "<group>"; };
 		202D7ECC2BA0E40000CAE603 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		202D7ECF2BA1E5CD00CAE603 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		202D7ED12BA1E5DB00CAE603 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -163,6 +171,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2026A66B2BA32C710036964C /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
+				2026A66C2BA32CB50036964C /* ProfileView.swift */,
+				2026A6702BA339370036964C /* MyPostView.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		202D7ECE2BA1E5B600CAE603 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,9 +265,9 @@
 				2026A6652BA2067A0036964C /* SplashView.swift */,
 				205AE9202B9A74610022A1E2 /* LoginView.swift */,
 				20D4E7D72BA09FF5000B3257 /* HomeView.swift */,
-				20D2AD452B9DC804006B5A3B /* MyPageView.swift */,
 				20D2AD482B9DD4CC006B5A3B /* Todayeats */,
 				20D2AD732B9F7BFE006B5A3B /* Community */,
+				2026A66B2BA32C710036964C /* MyPage */,
 				20D2AD682B9EE85C006B5A3B /* OnBoarding */,
 			);
 			path = View;
@@ -262,10 +280,11 @@
 				20D2AD492B9DD5A3006B5A3B /* CuisineSelectionView.swift */,
 				20D2AD4F2B9DF61F006B5A3B /* SpicySelectionView.swift */,
 				20D2AD532B9E1500006B5A3B /* OilySelectionView.swift */,
-				20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */,
 				20D2AD5B2B9E38E6006B5A3B /* WeatherSelectionView.swift */,
-				20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */,
 				20D2AD602B9E4A72006B5A3B /* ResultView.swift */,
+				20D2AD5D2B9E3AFC006B5A3B /* LocationCheckView.swift */,
+				20D2AD592B9E383D006B5A3B /* PlaceSelectionView.swift */,
+				2026A6692BA317320036964C /* RestaurantView.swift */,
 			);
 			path = Todayeats;
 			sourceTree = "<group>";
@@ -314,6 +333,7 @@
 				20D2AD772B9FDB40006B5A3B /* LocationViewModel.swift */,
 				20D4E7BF2BA06FBD000B3257 /* LoginViewModel.swift */,
 				202D7ED32BA1E6E200CAE603 /* CommunityViewModel.swift */,
+				2026A66E2BA330280036964C /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -470,6 +490,7 @@
 			files = (
 				20D2AD652B9E63B7006B5A3B /* CommunityView.swift in Sources */,
 				2026A6682BA216E70036964C /* TodayEatsView.swift in Sources */,
+				2026A6712BA339370036964C /* MyPostView.swift in Sources */,
 				20D4E7D82BA09FF5000B3257 /* HomeView.swift in Sources */,
 				20D2AD542B9E1500006B5A3B /* OilySelectionView.swift in Sources */,
 				2026A6642BA1FCEF0036964C /* SelectionModel.swift in Sources */,
@@ -481,6 +502,7 @@
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
 				20D2AD4C2B9DE1CA006B5A3B /* SmallButton.swift in Sources */,
 				20D2AD722B9F6665006B5A3B /* OnBoardingManager.swift in Sources */,
+				2026A66A2BA317330036964C /* RestaurantView.swift in Sources */,
 				20D4E7C02BA06FBD000B3257 /* LoginViewModel.swift in Sources */,
 				205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */,
 				20D2AD5E2B9E3AFD006B5A3B /* LocationCheckView.swift in Sources */,
@@ -495,6 +517,8 @@
 				2026A6662BA2067A0036964C /* SplashView.swift in Sources */,
 				20D2AD632B9E5431006B5A3B /* NavigationManager.swift in Sources */,
 				20D2AD5C2B9E38E6006B5A3B /* WeatherSelectionView.swift in Sources */,
+				2026A66F2BA330290036964C /* UserViewModel.swift in Sources */,
+				2026A66D2BA32CB50036964C /* ProfileView.swift in Sources */,
 				20D2AD4A2B9DD5A3006B5A3B /* CuisineSelectionView.swift in Sources */,
 				20D4E7C22BA076CC000B3257 /* AuthService.swift in Sources */,
 				20D2AD702B9F5EBB006B5A3B /* OnBoarding4View.swift in Sources */,

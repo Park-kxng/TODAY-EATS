@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Foundation
-import SwiftUI
 
 import SwiftUI
 
@@ -16,7 +14,7 @@ struct SmallButton: View {
     var viewName : String
     let title: String
     let isSelected: Bool
-    let action: () -> Void
+    var action: () -> Void
     let fontColor = Color.teMidGray
     let backgroundColor = Color.teLightGray
     let fontColorClicked = Color.white
@@ -55,7 +53,8 @@ struct SmallButton: View {
             .foregroundColor(isSelected ? fontColorClicked: fontColor) // 선택 상태에 따른 색상 변경
             .background(isSelected ? backgroundClicked: backgroundColor)
             .cornerRadius(32.0)
-        }else{
+        }
+        else{
             Button(action: action) {
                 HStack{
                     Spacer().frame(width: 12)

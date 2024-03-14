@@ -38,7 +38,11 @@ class CommunityViewModel: ObservableObject {
                     resName : data["resName"] as? String ?? "",
                     location : data["location"] as? String ?? "",
                     rating : rating,
-                    waiting : waiting
+                    waiting : waiting,
+                    administrativeArea: data["administrativeArea"] as? String ?? "",
+                    locality: data["locality"] as? String ?? "",
+                    subLocality: data["subLocality"] as? String ?? ""
+                    
                 )
             }
         }
@@ -57,7 +61,11 @@ class CommunityViewModel: ObservableObject {
             "resName": feed.resName,
             "location": feed.location,
             "rating": feed.rating,
-            "waiting": feed.waiting
+            "waiting": feed.waiting,
+            "administrativeArea" : feed.administrativeArea,
+            "locality" : feed.locality,
+            "subLocality" : feed.subLocality
+            
         ]) { error in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")

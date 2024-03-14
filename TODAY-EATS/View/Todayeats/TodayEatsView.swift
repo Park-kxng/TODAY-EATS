@@ -50,23 +50,23 @@ struct TodayEatsView: View {
                     .foregroundColor(Color.teTitleGray)
                     .multilineTextAlignment(.center)
                 Spacer()
+                
                 HStack{
                     Spacer().frame(width: 15)
-                    HStack{
+                    NavigationLink(value: "next") {
                         Spacer()
-                        NavigationLink("다음 단계로", value: "next")
+                        Text("메뉴 추천해주세요!")
                             .font(.teFont18M())
                             .foregroundColor(.white)
-                            .navigationTitle("이전 단계로")
                         Spacer()
+                    
                     }.frame(height: 56.0)
                         .background(Color.teBlack)
                         .cornerRadius(12)
-                    
-                    
-                    
+                        .navigationTitle("이전 단계로")
+
                     Spacer().frame(width: 15)
-                    
+
                 }
                 
                 Spacer().frame(height: 15)

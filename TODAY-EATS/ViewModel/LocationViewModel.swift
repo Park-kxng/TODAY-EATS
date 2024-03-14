@@ -49,11 +49,16 @@ class LocationViewModel: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
             
             if let placemark = placemarks?.first {
                 
-                
                 // 상세 주소 정보를 출력합니다.
                 let administrativeArea = placemark.administrativeArea ?? "" // 시, 도
+                UserDefaults.standard.set(administrativeArea, forKey: "administrativeArea")
+                
                 let locality = placemark.locality ?? "" // 시, 구
+                UserDefaults.standard.set(locality, forKey: "locality")
+
                 let subLocality = placemark.subLocality ?? "" // 동, 읍, 면
+                UserDefaults.standard.set(subLocality, forKey: "subLocality")
+
                 print("주소: \(administrativeArea), \(locality), \(subLocality)")
                 DispatchQueue.main.async {
                     self.address = "\(administrativeArea) \(locality) \(subLocality)"

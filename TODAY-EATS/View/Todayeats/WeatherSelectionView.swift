@@ -57,7 +57,7 @@ struct WeatherSelectionView: View {
                         Spacer().frame(width: 15)
                         
                         NavigationLink {
-                            LocationCheckView(navigationManager : navigationManager)
+                            ResultView(navigationManager : navigationManager)
                                 .environmentObject(selectionModel)
 
                         } label: {
@@ -81,8 +81,8 @@ struct WeatherSelectionView: View {
                 
                
             }.onAppear {
-                print(selectionModel.place)
-                selectionModel.weather = selectedCuisines 
+                print(selectionModel.oily)
+                selectionModel.weather = selectedCuisines
                 nextButtonEnabled = !selectedCuisines.isEmpty
             }
             .onChange(of: selectedCuisines , { oldValue, newValue in

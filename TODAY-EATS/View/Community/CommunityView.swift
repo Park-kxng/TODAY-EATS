@@ -82,7 +82,10 @@ struct CommunityView: View {
                                 }
                                 Spacer()
                                     .frame(width: 10)
-                                NavigationLink(destination: CreatePostView().navigationTitle("투데이츠 입력")) {
+                                NavigationLink(destination: CreatePostView()
+                                    .navigationTitle("투데이츠 입력")
+                                    .navigationBarTitleDisplayMode(.inline)
+                                ) {
                                         HStack {
                                             Image(systemName: "plus")
                                                 .resizable()

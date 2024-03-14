@@ -75,7 +75,7 @@ struct MyPageView: View {
             // Example detail view logic, replace with actual destination views
             switch item {
             case "프로필":
-                Text("프로필 상세 화면")
+                ProfileView()
             case "로그아웃":
                 Button("로그아웃 시도 중"){
                     signOut()

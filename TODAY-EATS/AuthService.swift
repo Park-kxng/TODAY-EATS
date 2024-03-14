@@ -29,9 +29,14 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
 
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
-                self.authState = .signedIn
-                self.signedIn = true
-                print("Auth state changed, is signed in")
+                if UserDefaults.standard.bool(forKey: "login") {
+                    self.authState = .signedIn
+                    print("Auth state changed, is signed in")
+
+                }else{
+                    self.authState = .authenticated
+
+                }
 
             } else {
                 self.signedIn = false
@@ -182,8 +187,11 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
                         // User is signed in to Firebase with Apple.
                         print("login success")
                         if let user = Auth.auth().currentUser {
-                            print(user.email)
+                            UserDefaults.standard.set(user.uid, forKey: "uid")
                             UserDefaults.standard.set(user.email, forKey: "email")
+                            print(user.email)
+                            print(user.uid)
+
 
                         }
                         UserDefaults.standard.set(true, forKey: "login")
