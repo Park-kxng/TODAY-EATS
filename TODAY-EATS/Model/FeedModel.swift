@@ -24,6 +24,7 @@ struct FeedModel : Identifiable, Codable {
     var administrativeArea: String
     var locality: String
     var subLocality: String
+    var imageURL : String
     
 
 }

@@ -57,8 +57,10 @@ struct SpicySelectionView: View {
                         
                         NavigationLink {
                             OilySelectionView(navigationManager : navigationManager)
-                                .navigationTitle("이전 단계로")
                                 .environmentObject(selectionModel)
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                                .navigationBarItems(leading: BackButton(title: "이전")) // 커스텀 뒤로가기 버튼 추가
 
                         } label: {
                             Spacer()

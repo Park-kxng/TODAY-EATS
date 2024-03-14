@@ -19,7 +19,10 @@ class UserViewModel : ObservableObject {
     }
     func fetchUserName() {
         let db = Firestore.firestore()
-        let uid = "p9l7Lv2RBFfDn2ZpimwspEwXcRy1"
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("사용자가 로그인하지 않았습니다.")
+            return
+        }
         // 특정 문서(UID)의 데이터 가져오기
         db.collection("user").document(uid).getDocument { (document, error) in
             if let document = document, document.exists {

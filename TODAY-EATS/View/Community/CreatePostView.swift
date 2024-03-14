@@ -221,36 +221,53 @@ struct CreatePostView: View {
             HStack{
                 Spacer().frame(width: 15.0)
                 Button(action: {
+                    
                     // FeedModel 인스턴스 생성
                     let admin : String = UserDefaults.standard.string(forKey: "administrativeArea") ?? ""
                     let locality : String = UserDefaults.standard.string(forKey: "locality") ?? ""
                     let subLocality : String = UserDefaults.standard.string(forKey: "subLocality") ?? ""
                     let userID : String = UserDefaults.standard.string(forKey: "uid") ?? ""
+                    let userName : String = UserDefaults.standard.string(forKey: "userName") ?? ""
+
                     print(admin)
                     print(locality)
                     print(subLocality)
+                    print(userName)
+                    if let selectedImage = selectedImage{
+                        viewModel.uploadImageToStorage(image: selectedImage) { url in
+                            guard let imageURL = url else {
+                                print("에러 : 이미지 URL을 받아오는데에 실패했습니다.")
+                                return
+                            }
+                            print("------------------------------------------")
+                            print(imageURL)
+                            print("------------------------------------------")
 
+                            let newFeed = FeedModel(
+                                id: UUID().uuidString, // Firestore에 추가할 때는 id 필드가 필요하지만, 실제로 데이터를 추가할 때는 이 필드를 사용하지 않습니다.
+                                userID: userID, // 현재 로그인한 사용자의 ID로 대체해야 합니다.
+                                userName: userName, // 현재 로그인한 사용자의 이름으로 대체해야 합니다.
+                                feedTitle: title,
+                                feedMemo: content,
+                                time: "\(Date())", // 실제 앱에서는 Date 객체를 적절한 문자열로 변환해야 합니다.
+                                resName: location, // 필요한 경우 사용자로부터 입력받거나 다른 방식으로 설정
+                                location: location,
+                                rating: rating,
+                                waiting: Int(waitingTime) ?? 0,// waitingTime은 String이므로 Int로 변환,
+                                administrativeArea: admin,
+                                locality: locality,
+                                subLocality: subLocality,
+                                imageURL: String(imageURL)
+                                
+                            )
 
-                     let newFeed = FeedModel(
-                         id: UUID().uuidString, // Firestore에 추가할 때는 id 필드가 필요하지만, 실제로 데이터를 추가할 때는 이 필드를 사용하지 않습니다.
-                         userID: userID, // 현재 로그인한 사용자의 ID로 대체해야 합니다.
-                         userName: userID, // 현재 로그인한 사용자의 이름으로 대체해야 합니다.
-                         feedTitle: title,
-                         feedMemo: content,
-                         time: "\(Date())", // 실제 앱에서는 Date 객체를 적절한 문자열로 변환해야 합니다.
-                         resName: location, // 필요한 경우 사용자로부터 입력받거나 다른 방식으로 설정
-                         location: location,
-                         rating: rating,
-                         waiting: Int(waitingTime) ?? 0,// waitingTime은 String이므로 Int로 변환,
-                         administrativeArea: admin,
-                         locality: locality,
-                         subLocality: subLocality
-                         
-                     )
+                            // FirestoreManager를 통해 Firestore에 데이터 추가
+                            viewModel.addFeed(feed: newFeed)
 
-                     // FirestoreManager를 통해 Firestore에 데이터 추가
-                     viewModel.addFeed(feed: newFeed)
-
+                        }
+                    }
+                    
+                     
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }) {

@@ -60,6 +60,9 @@ struct CuisineSelectionView: View {
                         NavigationLink {
                             SpicySelectionView(navigationManager : navigationManager)
                                 .environmentObject(selectionModel)
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                                .navigationBarItems(leading: BackButton(title: "이전")) // 커스텀 뒤로가기 버튼 추가
 
                         } label: {
                             Spacer()
@@ -80,13 +83,7 @@ struct CuisineSelectionView: View {
                     
                     
                 }
-                .navigationDestination(for: String.self) { str in
-                    switch str {
-                    case "next": CuisineSelectionView(navigationManager: navigationManager)
-                    default: EmptyView()
-                    }
-                
-            }
+  
                 .onAppear {
                     // Example logic to enable button - replace with your actual logic
                     selectionModel.cuisine = selectedCuisines

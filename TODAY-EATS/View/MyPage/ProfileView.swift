@@ -26,7 +26,7 @@ struct ProfileView: View {
             VStack{
                 VStack{
                     Text("닉네임")
-                        .font(.teFont12M())
+                        .font(.teFont16M())
                         .foregroundColor(Color.teMidGray)
                     HStack{
                         Spacer().frame(width: 15)

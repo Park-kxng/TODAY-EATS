@@ -108,8 +108,11 @@ struct ResultView: View {
                         Spacer().frame(width: 15)
                         // "맛집 찾아보기" 버튼의 수정된 동작
                         NavigationLink(destination: LocationCheckView(navigationManager: navigationManager)
-                            .navigationTitle("이전 단계로")
-                            .environmentObject(selectionModel))
+                            .environmentObject(selectionModel)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                            .navigationBarItems(leading: BackButton(title: "이전 단계로")) // 커스텀 뒤로가기 버튼 추가
+                        )
                         {
                             Spacer()
                             Text("맛집 찾아보기")

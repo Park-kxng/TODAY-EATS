@@ -8,6 +8,7 @@ import SwiftUI
 
 struct MyPageView: View {
     @EnvironmentObject var authService : AuthService
+    @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
 
     @State var user = User()
     
@@ -76,6 +77,16 @@ struct MyPageView: View {
             switch item {
             case "프로필":
                 ProfileView()
+                    .navigationTitle("프로필 설정")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                    .navigationBarItems(leading: BackButton(title: "이전")) // 커스텀 뒤로가기 버튼 추가
+            case "내 포스팅":
+                MyPostView()
+                    .navigationTitle("내 포스팅")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                    .navigationBarItems(leading: BackButton(title: "이전"))
             case "로그아웃":
                 Button("로그아웃 시도 중"){
                     signOut()

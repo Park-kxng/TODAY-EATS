@@ -76,7 +76,11 @@ struct TodayEatsView: View {
             .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
             .navigationDestination(for: String.self) { str in
                 switch str {
-                case "next": CuisineSelectionView(navigationManager: navigationManager).environmentObject(selectionModel)
+                case "next": CuisineSelectionView(navigationManager: navigationManager)
+                        .environmentObject(selectionModel)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                        .navigationBarItems(leading: BackButton(title: "이전")) // 커스텀 뒤로가기 버튼 추가
                 default: EmptyView()
                 }
             }

@@ -16,15 +16,7 @@ struct CommunityView_Previews: PreviewProvider {
 }
 
 
-struct CustomCorners: Shape {
-    var corners: UIRectCorner
-    var radius: CGFloat
 
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
 struct CommunityView: View {
     @StateObject var viewModel = CommunityViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -131,7 +123,7 @@ struct CommunityView: View {
                 .background(Color.teCommunityBG)
         }
         .onAppear {
-            viewModel.fetchFeeds()// ViewModel에서 feed 데이터를 불러오는 함수 호출
+            viewModel.fetchPostsArea()// ViewModel에서 현 지역 feed 데이터를 불러오는 함수 호출
         }
 
             
@@ -153,163 +145,3 @@ struct CommunityView: View {
 
 
 
-struct FeedItemRow: View {
-    let item: FeedModel
-
-    var body: some View {
-        ScrollView {
-            VStack{
-                Spacer().frame(height: 15)
-                // 사용자 정보
-              HStack{
-                  Spacer().frame(width: 26)
-                  Image("tap_mypage")
-                      .renderingMode(.template)
-                      .resizable()
-                      .foregroundColor(Color.teLightGray)
-                      .scaledToFit()
-                      .frame(width: 33, height: 33)
-                      .background(Color.teLightGray)
-                      .clipShape(Circle())
-
-                  Spacer()
-                      .frame(width: 10)
-                  
-                  VStack(alignment: .leading){
-                      Text(item.userName)
-                          .font(.teFont14SM())
-                          .foregroundColor(Color.teBlack)
-                          .frame(height: 18.0)
-                      Spacer()
-                          .frame(height: 0.0)
-                      Text("위치")
-                          .multilineTextAlignment(.leading)
-                          .font(.teFont12M())
-                          .foregroundColor(Color.teMidGray)
-                          .frame(height: 15.0)
-
-                  }.frame(height: 33)
-                  
-                  Spacer()
-              }
-                
-            Spacer().frame(height:10)
-            // 게시물 내용
-              HStack(alignment: .top) {
-                  Spacer().frame(width: 26)
-                  // 게시물 이미지
-                  Image("img_charc")
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 124, height: 124)
-                      .cornerRadius(10)
-                      .background(Color.teLightGray)
-                  Spacer().frame(width: 22)
-
-                  // 게시물 텍스트
-                  VStack(alignment: .leading, spacing: 5) {
-                      Text(item.feedTitle)
-                          .font(.teFont14SM())
-                          .foregroundColor(Color.teBlack)
-                          .frame(height: 23)
-                      Spacer()
-                          .frame(height: 0.0)
-                      HStack {
-                          ForEach(1...5, id: \.self) { index in
-                              // 별 모양을 표시, 채워진 별 또는 빈 별을 조건부로 표시
-                              Image(index <= item.rating ? "star_fill" : "star_fill")
-                                  .resizable()
-                                  .renderingMode(.template)
-                                  .foregroundColor( index <= item.rating ? .teYellow : .teBlack.opacity(0.3))
-                                  .frame(width: 14, height: 14) // 이미지 크기를 14x14로 설정
-
-                          }
-                          Spacer()
-                              .frame(width: 10.0)
-                          
-                          Text("\(item.waiting)분")
-                              .foregroundColor(.teMidGray)
-                              .font(.teFont11SM())
-                              .padding(.horizontal, 10.0)
-                              .frame(height: 20.0)
-                              .background(Color.teLightGray)
-                              .cornerRadius(32)
-                          Spacer()
-                      }.frame(height: 15)
-                      
-                      Spacer()
-                  }
-                  Spacer().frame(width: 26)
-              }.background(Color.white)
-                Spacer().frame(height: 15)
-                HStack{
-                    Spacer().frame(width: 20)
-                    Rectangle()
-                        .fill(Color.teLightGray)
-                        .frame(height: 1)
-                        .cornerRadius(20)
-                    Spacer().frame(width: 20)
-
-                }
-             
-
-          
-            }.background(Color.white)
-          }.task() {
-              await startTask()
-          }
-                  
-                      
-    }
-    func startTask() async {
-           // 위치 사용 권한 설정 확인
-           let locationManager = CLLocationManager()
-           let authorizationStatus = locationManager.authorizationStatus
-           
-           // 위치 사용 권한 항상 허용되어 있음
-           if authorizationStatus == .authorizedAlways {
-           }
-           // 위치 사용 권한 앱 사용 시 허용되어 있음
-           else if authorizationStatus == .authorizedWhenInUse {
-           }
-           // 위치 사용 권한 거부되어 있음
-           else if authorizationStatus == .denied {
-               // 앱 설정화면으로 이동
-               DispatchQueue.main.async {
-                   UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-               }
-           }
-           // 위치 사용 권한 대기 상태
-           else if authorizationStatus == .restricted || authorizationStatus == .notDetermined {
-               // 권한 요청 팝업창
-               locationManager.requestWhenInUseAuthorization()
-           }
-       }
-}
-
-struct DetailView: View {
-    let feedItem: FeedModel
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                Image("img_charc")
-                    .resizable()
-                    .scaledToFit()
-
-                Text(feedItem.feedTitle)
-                    .font(.title)
-                    .padding()
-
-                Text(feedItem.feedMemo)
-                    .padding()
-                Text("\(feedItem.rating)")
-                    .padding()
-                Text("\(feedItem.waiting)")
-                    .padding()
-                // 여기에 더 많은 세부 정보를 추가할 수 있습니다.
-            }
-        }
-        .navigationTitle("자세히 보기")
-    }
-}

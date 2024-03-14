@@ -59,6 +59,9 @@ struct WeatherSelectionView: View {
                         NavigationLink {
                             ResultView(navigationManager : navigationManager)
                                 .environmentObject(selectionModel)
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                                .navigationBarItems(leading: BackButton(title: "이전")) // 커스텀 뒤로가기 버튼 추가
 
                         } label: {
                             Spacer()
