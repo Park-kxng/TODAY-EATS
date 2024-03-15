@@ -95,124 +95,7 @@ struct MyPostView: View {
 
 
 
-struct FeedItemRow: View {
-    let item: FeedModel
 
-    var body: some View {
-        ScrollView {
-            VStack{
-                Spacer().frame(height: 15)
-                // 사용자 정보
-              HStack{
-                  Spacer().frame(width: 26)
-                  Image("tap_mypage")
-                      .renderingMode(.template)
-                      .resizable()
-                      .foregroundColor(Color.teLightGray)
-                      .scaledToFit()
-                      .frame(width: 33, height: 33)
-                      .background(Color.teLightGray)
-                      .clipShape(Circle())
-
-                  Spacer()
-                      .frame(width: 10)
-                  
-                  VStack(alignment: .leading){
-                      Text(item.userName)
-                          .font(.teFont14SM())
-                          .foregroundColor(Color.teBlack)
-                          .frame(height: 18.0)
-                      Spacer()
-                          .frame(height: 0.0)
-                      Text(item.resName)
-                          .multilineTextAlignment(.leading)
-                          .font(.teFont12M())
-                          .foregroundColor(Color.teMidGray)
-                          .frame(height: 15.0)
-
-                  }.frame(height: 33)
-                  
-                  Spacer()
-              }
-                
-            Spacer().frame(height:10)
-            // 게시물 내용
-              HStack(alignment: .top) {
-                  Spacer().frame(width: 26)
-                  // 게시물 이미지
-                  if item.imageURL == "" {
-                      Image("splash")
-                          .frame(width: 124, height: 124)
-                          .cornerRadius(10)
-                          .background(Color.teLightGray)
-                  }else{
-                      AsyncImage(url: URL(string: item.imageURL)) { image in
-                              image.resizable()
-                          } placeholder: {
-                              ProgressView()
-                          }
-                          .frame(width: 124, height: 124)
-                          .cornerRadius(10)
-                  }
-                  
-
-                  Spacer().frame(width: 22)
-
-                  // 게시물 텍스트
-                  VStack(alignment: .leading, spacing: 5) {
-                      Text(item.feedTitle)
-                          .font(.teFont14SM())
-                          .foregroundColor(Color.teBlack)
-                          .frame(height: 23)
-                      Spacer()
-                          .frame(height: 0.0)
-                      HStack {
-                          ForEach(1...5, id: \.self) { index in
-                              // 별 모양을 표시, 채워진 별 또는 빈 별을 조건부로 표시
-                              Image(index <= item.rating ? "star_fill" : "star_fill")
-                                  .resizable()
-                                  .renderingMode(.template)
-                                  .foregroundColor( index <= item.rating ? .teYellow : .teBlack.opacity(0.3))
-                                  .frame(width: 14, height: 14) // 이미지 크기를 14x14로 설정
-
-                          }
-                          Spacer()
-                              .frame(width: 10.0)
-                          
-                          Text("\(item.waiting)분")
-                              .foregroundColor(.teMidGray)
-                              .font(.teFont11SM())
-                              .padding(.horizontal, 10.0)
-                              .frame(height: 20.0)
-                              .background(Color.teLightGray)
-                              .cornerRadius(32)
-                          Spacer()
-                      }.frame(height: 15)
-                      
-                      Spacer()
-                  }
-                  Spacer().frame(width: 26)
-              }.background(Color.white)
-                Spacer().frame(height: 15)
-                HStack{
-                    Spacer().frame(width: 20)
-                    Rectangle()
-                        .fill(Color.teLightGray)
-                        .frame(height: 1)
-                        .cornerRadius(20)
-                    Spacer().frame(width: 20)
-
-                }
-             
-
-          
-            }.background(Color.white)
-          }.task() {
-              await startTask()
-          }
-                  
-                      
-    }
     func startTask() async {
            // 위치 사용 권한 설정 확인
            let locationManager = CLLocationManager()
@@ -237,7 +120,7 @@ struct FeedItemRow: View {
                locationManager.requestWhenInUseAuthorization()
            }
        }
-}
+
 
 struct DetailView: View {
     let feedItem: FeedModel
@@ -265,3 +148,169 @@ struct DetailView: View {
         .navigationTitle("자세히 보기")
     }
 }
+struct FeedItemRow: View {
+    var viewMdoel = UserViewModel()
+    let item: FeedModel
+    @State private var user : [String]?
+    var body: some View {
+        ScrollView {
+            VStack{
+                Spacer().frame(height: 15)
+                // 사용자 정보
+                HStack{
+                    Spacer().frame(width: 26)
+                    if let user = user { // user가 nil이 아닌 경우에만 표시
+                        // 사용자 이미지를 가져와서 표시
+                        if let imageUrl = URL(string: user[1]) {
+                            // 이미지를 비동기적으로 로드하여 표시
+                            AsyncImage(url: imageUrl) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .foregroundColor(Color.teLightGray)
+                                        .scaledToFill()
+                                        .frame(width: 33, height: 33)
+                                        .background(Color.teLightGray)
+                                        .clipShape(Circle())
+                                case .failure:
+                                    Image(systemName: "person.circle")
+                                        .resizable()
+                                        .foregroundColor(Color.teLightGray)
+                                        .scaledToFit()
+                                        .frame(width: 33, height: 33)
+                                        .background(Color.teLightGray)
+                                        .clipShape(Circle())
+                                @unknown default:
+                                    fatalError()
+                                }
+                            }
+                            
+                            Spacer()
+                                .frame(width: 10)
+                            
+                            VStack(alignment: .leading){
+                                Text(user[0])
+                                    .font(.teFont14SM())
+                                    .foregroundColor(Color.teBlack)
+                                    .frame(height: 18.0)
+                                Spacer()
+                                    .frame(height: 0.0)
+                                Text(item.resName)
+                                    .multilineTextAlignment(.leading)
+                                    .font(.teFont12M())
+                                    .foregroundColor(Color.teMidGray)
+                                    .frame(height: 15.0)
+                                
+                            }.frame(height: 33)
+                            
+                            Spacer()
+                            
+                        } else {
+                            // 이미지 URL이 유효하지 않은 경우 기본 이미지 표시
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .foregroundColor(Color.teLightGray)
+                                .scaledToFit()
+                                .frame(width: 33, height: 33)
+                                .background(Color.teLightGray)
+                                .clipShape(Circle())
+                        }
+                        
+                    }
+                }       
+                .onAppear {
+                    // 뷰가 나타날 때 사용자 데이터를 가져오기
+                    viewMdoel.fetchOtherUser(uid: item.userID) { result in
+                        if let result = result {
+                            // 사용자 데이터 가져오기 성공 시 UI 업데이트
+                            self.user = result
+                            
+                        } else {
+                            // 사용자 데이터 가져오기 실패 시 에러 처리
+                            print("Error fetching user data.")
+                        }
+                    }
+                }
+                 
+                    
+                    Spacer().frame(height:10)
+                    // 게시물 내용
+                    HStack(alignment: .top) {
+                        Spacer().frame(width: 26)
+                        // 게시물 이미지
+                        if item.imageURL == "" {
+                            Image("splash")
+                                .frame(width: 124, height: 124)
+                                .cornerRadius(10)
+                                .background(Color.teLightGray)
+                        }else{
+                            AsyncImage(url: URL(string: item.imageURL)) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 124, height: 124)
+                            .cornerRadius(10)
+                        }
+                        
+                        
+                        Spacer().frame(width: 22)
+                        
+                        // 게시물 텍스트
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(item.feedTitle)
+                                .font(.teFont14SM())
+                                .foregroundColor(Color.teBlack)
+                                .frame(height: 23)
+                            Spacer()
+                                .frame(height: 0.0)
+                            HStack {
+                                ForEach(1...5, id: \.self) { index in
+                                    // 별 모양을 표시, 채워진 별 또는 빈 별을 조건부로 표시
+                                    Image(index <= item.rating ? "star_fill" : "star_fill")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundColor( index <= item.rating ? .teYellow : .teBlack.opacity(0.3))
+                                        .frame(width: 14, height: 14) // 이미지 크기를 14x14로 설정
+                                    
+                                }
+                                Spacer()
+                                    .frame(width: 10.0)
+                                
+                                Text("\(item.waiting)분")
+                                    .foregroundColor(.teMidGray)
+                                    .font(.teFont11SM())
+                                    .padding(.horizontal, 10.0)
+                                    .frame(height: 20.0)
+                                    .background(Color.teLightGray)
+                                    .cornerRadius(32)
+                                Spacer()
+                            }.frame(height: 15)
+                            
+                            Spacer()
+                        }
+                        Spacer().frame(width: 26)
+                    }.background(Color.white)
+                    Spacer().frame(height: 15)
+                    HStack{
+                        Spacer().frame(width: 20)
+                        Rectangle()
+                            .fill(Color.teLightGray)
+                            .frame(height: 1)
+                            .cornerRadius(20)
+                        Spacer().frame(width: 20)
+                        
+                    }
+                    
+                    
+                    
+                }.background(Color.white)
+            }.task() {
+                await startTask()
+            }
+            
+            
+        }}
