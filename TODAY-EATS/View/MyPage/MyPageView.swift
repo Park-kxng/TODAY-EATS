@@ -123,7 +123,13 @@ struct MyPageView: View {
         
             case "1:1 문의하기":
                 ContactUsView()
-           
+            case "저장한 맛집":
+                FavoriteResView()
+                    .navigationTitle("저장한 맛집")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+                    .navigationBarItems(leading: BackButton(title: "이전"))
+
             default:
                 Text("\(item) 상세 화면")
             }

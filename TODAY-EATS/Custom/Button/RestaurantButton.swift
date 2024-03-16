@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct RestaurantButton : View {
+    @StateObject private var viewModel = RestaurantViewModel()
+
     var item : RestaurantModel
     // 초기화
     var title: String = "맘스터리 중화점"
@@ -35,8 +37,18 @@ struct RestaurantButton : View {
                                 .kerning(-0.2)
                             Spacer()
                             Button {
+                                
                                 self.buttonIsSelected.toggle()
-                                // 저장된 맛집에 추가하는 데이터 로직 추가
+                                print(buttonIsSelected)
+                                if buttonIsSelected {
+                                    // 맛집 추가
+                                    viewModel.addFavoriteRes(res: item)
+                                }else{
+                                    // 맛집 삭제
+                                    print("삭제 시도")
+                                    viewModel.deleteFavoriteRes(res: item)
+                                    
+                                }
                                 
                             } label: {
                                 Image(buttonIsSelected ? "heart_fill" : "heart")

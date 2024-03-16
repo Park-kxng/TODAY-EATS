@@ -15,6 +15,6 @@ struct RestaurantModel : Identifiable, Codable {
     var category: String
     var telephone: String
     var roadAddress: String
-    var mapx: Int
-    var mapy: Int
+    var mapx: Double
+    var mapy: Double
 }

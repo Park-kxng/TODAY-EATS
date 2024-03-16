@@ -32,6 +32,9 @@
 		204D9F5D2BA6123B00A9F9F5 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F5C2BA6123B00A9F9F5 /* RestaurantViewModel.swift */; };
 		204D9F612BA619E900A9F9F5 /* RestaurantButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F602BA619E900A9F9F5 /* RestaurantButton.swift */; };
 		204D9F632BA6207700A9F9F5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F622BA6207700A9F9F5 /* MapView.swift */; };
+		204D9F662BA622CA00A9F9F5 /* CutomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F652BA622CA00A9F9F5 /* CutomMarker.swift */; };
+		204D9F682BA6235500A9F9F5 /* RestaurantMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F672BA6235500A9F9F5 /* RestaurantMapView.swift */; };
+		204D9F6A2BA6514F00A9F9F5 /* FavoriteResView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D9F692BA6514F00A9F9F5 /* FavoriteResView.swift */; };
 		205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */; };
 		205AE8F72B9A726B0022A1E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205AE8F62B9A726B0022A1E2 /* ContentView.swift */; };
 		205AE8FB2B9A726C0022A1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205AE8FA2B9A726C0022A1E2 /* Assets.xcassets */; };
@@ -120,6 +123,9 @@
 		204D9F5C2BA6123B00A9F9F5 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		204D9F602BA619E900A9F9F5 /* RestaurantButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantButton.swift; sourceTree = "<group>"; };
 		204D9F622BA6207700A9F9F5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		204D9F652BA622CA00A9F9F5 /* CutomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomMarker.swift; sourceTree = "<group>"; };
+		204D9F672BA6235500A9F9F5 /* RestaurantMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapView.swift; sourceTree = "<group>"; };
+		204D9F692BA6514F00A9F9F5 /* FavoriteResView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResView.swift; sourceTree = "<group>"; };
 		205AE8F12B9A726B0022A1E2 /* TODAY-EATS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODAY-EATS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		205AE8F42B9A726B0022A1E2 /* TODAY_EATSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODAY_EATSApp.swift; sourceTree = "<group>"; };
 		205AE8F62B9A726B0022A1E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 				2026A67E2BA39D660036964C /* ContactUsView.swift */,
 				2026A6802BA3A2910036964C /* LogOutView.swift */,
 				2026A6822BA3A4110036964C /* SignOutView.swift */,
+				204D9F692BA6514F00A9F9F5 /* FavoriteResView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -225,12 +232,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		204D9F642BA6207E00A9F9F5 /* View */ = {
+		204D9F642BA6207E00A9F9F5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				204D9F622BA6207700A9F9F5 /* MapView.swift */,
+				204D9F652BA622CA00A9F9F5 /* CutomMarker.swift */,
+				204D9F672BA6235500A9F9F5 /* RestaurantMapView.swift */,
 			);
-			path = View;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		205AE8E82B9A726B0022A1E2 = {
@@ -336,7 +345,7 @@
 		20D2AD662B9E6636006B5A3B /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				204D9F642BA6207E00A9F9F5 /* View */,
+				204D9F642BA6207E00A9F9F5 /* Map */,
 				20D2AD672B9E664D006B5A3B /* Button */,
 				20EFDC942B9B67B60091C49F /* Desgin.swift */,
 			);
@@ -553,7 +562,9 @@
 				2026A67D2BA396F10036964C /* PrivacyPolicyView .swift in Sources */,
 				202D7ED22BA1E5DB00CAE603 /* FeedModel.swift in Sources */,
 				2026A6852BA3AA220036964C /* ImagePicker.swift in Sources */,
+				204D9F662BA622CA00A9F9F5 /* CutomMarker.swift in Sources */,
 				204D9F632BA6207700A9F9F5 /* MapView.swift in Sources */,
+				204D9F682BA6235500A9F9F5 /* RestaurantMapView.swift in Sources */,
 				2026A6832BA3A4110036964C /* SignOutView.swift in Sources */,
 				2026A6732BA34B9B0036964C /* BackButton.swift in Sources */,
 				20D2AD6C2B9EE886006B5A3B /* OnBoarding2View.swift in Sources */,
@@ -588,6 +599,7 @@
 				20D2AD612B9E4A72006B5A3B /* ResultView.swift in Sources */,
 				205AE9212B9A74610022A1E2 /* LoginView.swift in Sources */,
 				205AE8F52B9A726B0022A1E2 /* TODAY_EATSApp.swift in Sources */,
+				204D9F6A2BA6514F00A9F9F5 /* FavoriteResView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

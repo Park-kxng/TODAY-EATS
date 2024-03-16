@@ -4,6 +4,10 @@
 <dict>
 	<key>CHATGPTkey</key>
 	<string>$(CHATGPTkey)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>nmap</string>
+	</array>
 	<key>NAVER_ID</key>
 	<string>$(NAVER_ID)</string>
 	<key>NAVER_SECRET</key>

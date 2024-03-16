@@ -27,6 +27,13 @@ class LocationViewModel: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
         // 여기서 latestLocation을 사용하여 위치 데이터를 저장합니다.
         // 예: UserDefaults, CoreData, 서버 등
         print("Updated Location: \(latestLocation)")
+        let latitude = latestLocation.coordinate.latitude
+        let longitude = latestLocation.coordinate.longitude
+
+        
+        UserDefaults.standard.setValue(latitude, forKey: "latitude")
+        UserDefaults.standard.setValue(longitude, forKey: "longitude")
+
         reverseGeocodeLocationNaver(location: latestLocation)
         stopUpdatingLocation()
     }

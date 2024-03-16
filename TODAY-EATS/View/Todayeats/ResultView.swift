@@ -137,6 +137,12 @@ struct ResultView: View {
                
                 }
             .navigationTitle("이전 단계로")
+            .onChange(of: selectedItem ?? "" , { oldValue, newValue in
+                selectionModel.selectedMenu = newValue
+                nextButtonEnabled = !newValue.isEmpty
+
+            })
+            
             
         }
        

@@ -1,32 +1,21 @@
 //
-//  RestaurantView.swift
+//  FavariteResView.swift
 //  TODAY-EATS
 //
-//  Created by p_kxn_g on 3/14/24.
+//  Created by p_kxn_g on 3/17/24.
 //
 
+import Foundation
 import SwiftUI
 import MapKit
-extension CLLocationCoordinate2D: Identifiable {
-    public var id: String {
-        "\(latitude)-\(longitude)"
-    }
-}
-
-struct Place: Identifiable {
-    var id = UUID()
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-    let color: Color
-}
 
 
-struct RestaurantView: View {
+
+struct FavoriteResView: View {
     @EnvironmentObject var selectionModel: SelectionModel
     @StateObject private var viewModel = RestaurantViewModel()
     @State private var selection: UUID?
 
-    var navigationManager: NavigationManager
     
     @Environment(\.presentationMode) var presentationMode // 이전 화면으로 돌아가는 환경 변수
     @State private var isNavigationActive = false
@@ -62,23 +51,6 @@ struct RestaurantView: View {
                     Spacer()
                         .frame(height: 20)
                 
-                    // 제목
-                    Text(title)
-                        .font(.teFont26B())
-                        .kerning(-0.2)
-                    
-                    Spacer()
-                        .frame(height: 8.0)
-                    
-                    Text(subTitle)
-                        .font(.teFont16M())
-                        .foregroundColor(Color.teTitleGray)
-                        .multilineTextAlignment(.center)
-                    
-                    Spacer()
-                        .frame(height: 20)
-
-                    
                     ScrollView{
                             HStack{
                                 Spacer().frame(width: 30)
@@ -86,17 +58,16 @@ struct RestaurantView: View {
                                 VStack(spacing: 15) {
                                     ForEach(viewModel.restaurants) { item in
                                         Button(action: {
-                                            if selectedItem == item.title {
-                                                selectedItem = nil
-                                            }else{
-                                                selectedItem = item.title
-                                                selectedLongitude = String(item.mapx)
-                                                selectedLatitude = String(item.mapy)
-                                            }
+
+                                            selectedItem = item.title
+                                            selectedLongitude = String(item.mapx)
+                                            selectedLatitude = String(item.mapy)
+                                            openNaverMap(dlat: selectedLatitude!, dlng: selectedLongitude!, dname: selectedItem!)
+                                            
                                       
                                             
                                         }, label: {
-                                            RestaurantButton(item: item, isSelected: selectedItem == item.title)                                        })
+                                            RestaurantButton(item: item, buttonIsSelected: true, isSelected: true)                                        })
                                         
                                     }
                                 }
@@ -106,44 +77,8 @@ struct RestaurantView: View {
                         
                     }
                     
-                    Spacer()
                         
 
-                    HStack{
-                        Spacer().frame(width: 15)
-                        // "처음으로" 버튼의 수정된 동작
-                        Button(action: {navigationManager.popToRootView()}) {
-                            HStack {
-                                Spacer()
-                                Text("처음으로")
-                                    .font(.teFont18M())
-                                    .foregroundColor(fontColorClicked)
-                                Spacer()
-                            }
-                            .frame(height: 56.0)
-                            .background(backgroundClicked)
-                            .cornerRadius(12)
-                        }
-                        Spacer().frame(width: 8)
-
-                        Button(action: {openNaverMap()}) {
-                            HStack {
-                                Spacer()
-                                Text("길 찾기")
-                                    .font(.teFont18M())
-                                    .foregroundColor( selectedItem != nil ? fontColorClicked : fontColor)
-                                Spacer()
-                            }
-                            .frame(height: 56.0)
-                            .background(selectedItem != nil ? backgroundClicked : backgroundColor)
-                            .cornerRadius(12)
-                        }
-                        .disabled(selectedItem == nil)
-
-                        
-                        Spacer().frame(width: 15)
-                        
-                    }
                         
 
                     
@@ -153,33 +88,30 @@ struct RestaurantView: View {
                
                 }
                 .onAppear {
-                    viewModel.fetchGoodRestaurant(selection: selectionModel) {
-                    }
-                }    
+                    viewModel.fetchFavoriteRes()
+                    
+                }
             
             
 
             
         }
-    func openNaverMap() {
+    func openNaverMap(dlat:String , dlng : String, dname : String ) {
         guard let lat = UserDefaults.standard.string(forKey: "latitude"),
-              let lng = UserDefaults.standard.string(forKey: "longitude"),
-              let selectedLatitude = selectedLatitude,
-              let selectedLongitude = selectedLongitude,
-              let selectedItem = selectedItem else {
+              let lng = UserDefaults.standard.string(forKey: "longitude") else {
             print("Required information is missing")
             return
         }
-        print(lat,lng,selectedLatitude,selectedLongitude, selectedItem)
+        print(lat,lng)
         var components = URLComponents(string: "nmap://route/public")
         
         components?.queryItems = [
             URLQueryItem(name: "slat", value: lat),
             URLQueryItem(name: "slng", value: lng),
             URLQueryItem(name: "sname", value: "현재 위치"),
-            URLQueryItem(name: "dlat", value: selectedLatitude),
-            URLQueryItem(name: "dlng", value: selectedLongitude),
-            URLQueryItem(name: "dname", value: selectedItem),
+            URLQueryItem(name: "dlat", value: dlat),
+            URLQueryItem(name: "dlng", value: dlng),
+            URLQueryItem(name: "dname", value: dname),
             URLQueryItem(name: "appname", value: "com.pky.todayEats")
         ]
         
