@@ -4,6 +4,10 @@
 <dict>
 	<key>CHATGPTkey</key>
 	<string>$(CHATGPTkey)</string>
+	<key>NAVER_ID</key>
+	<string>$(NAVER_ID)</string>
+	<key>NAVER_SECRET</key>
+	<string>$(NAVER_SECRET)</string>
 	<key>RGid</key>
 	<string>$(RGid)</string>
 	<key>RGsecret</key>

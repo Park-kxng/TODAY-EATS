@@ -19,8 +19,8 @@ struct SpicySelectionView: View {
     
     let title : String = "둘 중 하나만 선택해주세요!"
     let subTitle = "맵기"
-    let buttonTitles : [String] = ["매운 거", "안 매운 거"]
-    var buttonLines : [ClosedRange<Int>] = [1...2]
+    let buttonTitles : [String] = ["매운 거", "안 매운 거", "상관없어요"]
+    var buttonLines : [ClosedRange<Int>] = [1...2, 3...3]
     @State private var selectedCuisines: Set<String> = []
     @State private var nextButtonEnabled: Bool = false
     

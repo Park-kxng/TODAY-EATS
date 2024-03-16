@@ -22,8 +22,8 @@ struct OilySelectionView : View {
     let title : String = "둘 중 하나만 선택해주세요!"
     let subTitle = "느끼함"
 
-    let buttonTitles : [String] = ["기름진 거", "담백한 거"]
-    var buttonLines : [ClosedRange<Int>] = [1...2]
+    let buttonTitles : [String] = ["기름진 거", "담백한 거","상관 없어요"]
+    var buttonLines : [ClosedRange<Int>] = [1...2, 3...3 ]
         @State private var selectedCuisines: Set<String> = []
         @State private var nextButtonEnabled: Bool = false
     
