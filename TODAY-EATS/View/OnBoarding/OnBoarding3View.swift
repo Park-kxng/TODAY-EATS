@@ -38,6 +38,8 @@ struct OnBoarding3View: View {
             Text(title)
                 .font(.teFont26B())
                 .multilineTextAlignment(.center)
+                .foregroundStyle(Color.teBlack)
+
                 .kerning(-0.2)
             Spacer()
                 .frame(height: 8.0)
@@ -65,6 +67,8 @@ struct OnBoarding3View: View {
                 
                 NavigationLink {
                     OnBoarding4View(onboardingManager: onBoardingManager)
+                        .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
+
                 } label: {
                     Spacer()
                     Text("다음 단계로")
@@ -85,8 +89,8 @@ struct OnBoarding3View: View {
             Spacer().frame(height: 15)
 
         }.navigationBarBackButtonHidden(true)
-        
-        
+            .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
+
         
     }
 }

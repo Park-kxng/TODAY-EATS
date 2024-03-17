@@ -22,10 +22,16 @@ struct HomeView: View {
                 ZStack {
                     if selectedTab == 0 {
                         CommunityView()
+                            .navigationBarBackButtonHidden(true)
+                            .navigationBarTitleDisplayMode(.inline)
+
+
                     } else if selectedTab == 1 {
                         TodayEatsView()
                     } else if selectedTab == 2 {
                         MyPageView().environmentObject(AuthService())
+                            .navigationBarBackButtonHidden(true)
+
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

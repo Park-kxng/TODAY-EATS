@@ -26,25 +26,29 @@ class AuthService: NSObject, ObservableObject, ASAuthorizationControllerDelegate
     
     override init() {
         super.init()
-
-        Auth.auth().addStateDidChangeListener() { auth, user in
-            if user != nil {
+        print("log1")
+        // 사용자 로그인 상태 변경 감지 리스너 추가
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                // 사용자가 로그인 상태일 때
+                print("Auth state changed, user is signed in with UID: \(user.uid)")
                 if UserDefaults.standard.bool(forKey: "login") {
+                    // 사용자가 앱에서 로그인 플로우를 완료했음
                     self.authState = .signedIn
-                    print("Auth state changed, is signed in")
-
-                }else{
+                    print("User is signed in and login flow is completed.")
+                } else {
+                    // 사용자는 로그인되어 있으나, 앱에서 정의한 추가 로그인 플로우를 완료하지 않음
                     self.authState = .authenticated
-
+                    print("User is authenticated but login flow is not completed.")
                 }
-
             } else {
-                self.signedIn = false
+                // 사용자가 로그아웃 상태일 때
                 self.authState = .signedOut
-                print("Auth state changed, is signed out")
+                print("Auth state changed, user is signed out")
             }
         }
     }
+
     // MARK: - 로그아웃
 
     func signOut() async throws {

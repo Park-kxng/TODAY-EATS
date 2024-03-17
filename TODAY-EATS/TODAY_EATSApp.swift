@@ -54,13 +54,14 @@ struct TODAY_EATSApp: App {
 
     init() {
         FirebaseApp.configure()
+        print(authService.authState)
 
         
     }
     
     var body: some Scene {
         WindowGroup{
-            ContentView() .environmentObject(authService) // Provide AuthService as an EnvironmentObject
+            ContentView().environmentObject(authService) // Provide AuthService as an EnvironmentObject
         }
 
     }

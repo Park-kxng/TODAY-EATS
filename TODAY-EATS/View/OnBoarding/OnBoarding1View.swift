@@ -18,6 +18,7 @@ struct OnBoarding1View: View {
     let subTitle: String = "뭐 먹을지 고민되면 언제든 찾아주세요!"
 
     var body: some View {
+        NavigationView{
             VStack {
                 Spacer().frame(height: 60)
                 HStack{
@@ -46,8 +47,10 @@ struct OnBoarding1View: View {
                     HStack{
                         Spacer()
                         NavigationLink {
-                            OnBoarding2View(onBoardingManager: onBoardingManager)
+                            OnBoarding3View(onBoardingManager: onBoardingManager)
                                 .navigationBarBackButtonHidden()
+                                .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
+
 
                         } label: {
                             Spacer()
@@ -78,6 +81,8 @@ struct OnBoarding1View: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
 
+        }
+            
     }
 }
 

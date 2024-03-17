@@ -30,6 +30,7 @@ struct OnBoarding4View: View {
     let fontColorClicked = Color.white
     let backgroundColor = Color.teLightGray
     let backgroundClicked = Color.teBlack
+
     var body: some View {
         VStack{
             Spacer()
@@ -38,6 +39,8 @@ struct OnBoarding4View: View {
                 .font(.teFont26B())
                 .multilineTextAlignment(.center)
                 .kerning(-0.2)
+                .foregroundStyle(Color.teBlack)
+
             Spacer()
                 .frame(height: 8.0)
             Text(subTitle)
@@ -62,9 +65,12 @@ struct OnBoarding4View: View {
             HStack{
                 
                 Spacer().frame(width: 15)
-                
+
                 NavigationLink {
                     HomeView()
+                        .background(Color.white)
+                        .edgesIgnoringSafeArea(.all) // 전체 화면을
+
                 } label: {
                     Spacer()
                     Text("투데이츠 시작하기")
@@ -82,14 +88,17 @@ struct OnBoarding4View: View {
             Spacer().frame(height: 15)
 
         }
+        .background(Color.white.edgesIgnoringSafeArea(.all)) // 화면 전체에 빨간색 배경 적용
         .navigationBarBackButtonHidden(true)
+        .onAppear{
+            UserDefaults.standard.set(true, forKey: "onBoarding")
+
+        }
     }
 }
        
 
-#Preview {
-    OnBoarding4View(onboardingManager: OnboardingManager())
-}
+
 
 
   
