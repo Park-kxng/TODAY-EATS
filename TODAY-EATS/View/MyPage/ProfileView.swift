@@ -91,6 +91,7 @@ struct ProfileView: View {
                     .frame(height: 30) // 텍스트필드의 높이를 설정합니다.
                     .padding(.all, 8.0)
                     .background(Color.teLightGray)
+                    .foregroundStyle(Color.teBlack)
                     .cornerRadius(8)
                     .font(.teFont16R())
                     .kerning(-0.2)
@@ -109,6 +110,7 @@ struct ProfileView: View {
             // View가 나타날 때 UserDefaults에서 최신 userName을 가져옴
             self.userName = UserDefaults.standard.string(forKey: "userName") ?? ""
         }
+        .background(Color.white)
         // 완료 버튼
          HStack{
              Spacer().frame(width: 15.0)
@@ -142,5 +144,6 @@ struct ProfileView: View {
                  .frame(width: 15.0)
              
          }.padding(.bottom, 10.0)
+            .background(Color.white)
     }
 }

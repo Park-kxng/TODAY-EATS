@@ -42,6 +42,8 @@ struct LocationCheckView: View {
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
+                        .foregroundStyle(Color.teBlack)
+
                     Spacer()
                         .frame(height: 8.0)
                     Text(subTitle)
@@ -107,7 +109,7 @@ struct LocationCheckView: View {
             }.onAppear {
                 print(selectionModel.selectedMenu)
                
-            }
+            }.background(Color.white)
             
             
         }

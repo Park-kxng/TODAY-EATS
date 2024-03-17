@@ -38,6 +38,8 @@ struct PlaceSelectionView: View {
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
+                        .foregroundStyle(Color.teBlack)
+
                     Spacer()
                         .frame(height: 8.0)
                     Text(subTitle)
@@ -90,7 +92,7 @@ struct PlaceSelectionView: View {
                 selectionModel.place = newValue
                 nextButtonEnabled = !newValue.isEmpty
 
-            })
+            }).background(Color.white)
             
         }
        

@@ -28,6 +28,9 @@ extension Font {
     static func teFont14R() -> Font {
         return Font.custom("AppleSDGothicNeo-Regular", size: 14)
     }
+    static func teFont14M() -> Font {
+        return Font.custom("AppleSDGothicNeo-Medium", size: 14)
+    }
     static func teFont14SM() -> Font {
         return Font.custom("AppleSDGothicNeo-SemiBold", size: 14)
     }
@@ -52,6 +55,9 @@ extension Font {
     }
     static func teFont20SM() -> Font {
         return Font.custom("AppleSDGothicNeo-SemiBold", size: 20)
+    }
+    static func teFont22B() -> Font {
+        return Font.custom("AppleSDGothicNeo-Bold", size: 22)
     }
     // 나머지 폰트에 대해서도 유사하게 정의합니다.
 }

@@ -21,6 +21,7 @@ struct MyPageView: View {
 
     var body: some View {
         NavigationView{
+            VStack{
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 20) {
                     ForEach(myPageData, id: \.title) { section in
@@ -78,8 +79,9 @@ struct MyPageView: View {
                 .padding(.top)
                 .background(Color.white)
             }
+        }.background(Color.white)
+            .edgesIgnoringSafeArea(.all) // 전체 화면을 커버하도록 설정합니다.
         }
-        
     }
     @ViewBuilder
         private func detailView(for item: String) -> some View {

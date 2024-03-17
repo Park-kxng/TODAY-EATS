@@ -53,7 +53,7 @@ struct RestaurantButton : View {
                             } label: {
                                 Image(buttonIsSelected ? "heart_fill" : "heart")
                                     .resizable()
-                                    .frame(width: 18, height: 18)
+                                    .frame(width: 20, height: 18)
                             }
 
                             

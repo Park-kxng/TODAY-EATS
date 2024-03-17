@@ -37,6 +37,7 @@ struct CuisineSelectionView: View {
                     Spacer()
                         .frame(height: 60)
                     Text(title)
+                        .foregroundStyle(Color.teBlack)
                         .font(.teFont26B())
                         .kerning(-0.2)
                     Spacer()
@@ -93,7 +94,7 @@ struct CuisineSelectionView: View {
                     selectionModel.cuisine = newValue
                     nextButtonEnabled = !newValue.isEmpty
 
-                })
+                }).background(Color.white)
                
             
 }

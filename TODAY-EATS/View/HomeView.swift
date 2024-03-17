@@ -29,7 +29,7 @@ struct HomeView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
+                Spacer().frame(height: 0)
                 
                 // 커스텀 탭 바
                 HStack {
@@ -117,14 +117,15 @@ struct HomeView: View {
                 .padding()
                 .frame(height: 90.0) // 전체 탭 바의 높이 조정
                 .background(Color.white) // 커스텀 탭 바의 배경색
-                .shadow(color: Color.black.opacity(0.03), radius: 5, y: -5)
+                .shadow(color: Color.black.opacity(0.03), radius: 5, y: -7)
                 .frame(maxWidth: .infinity)
                 
             }
             .edgesIgnoringSafeArea(.bottom) // 하단의 안전 영역 무시
         }
         .navigationBarBackButtonHidden(true)
-
+        
+        
     }
 }
 

@@ -151,7 +151,7 @@ class RestaurantViewModel: ObservableObject {
                         print(mapx, mapy)
                         let newRes = RestaurantModel(
                             id: self.stripHTML(from: title),
-                            title: title,
+                            title: self.stripHTML(from: title),
                             category: category,
                             telephone: telephone,
                             roadAddress: roadAddress,

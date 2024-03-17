@@ -37,6 +37,8 @@ struct SpicySelectionView: View {
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
+                        .foregroundStyle(Color.teBlack)
+
                     Spacer()
                         .frame(height: 8.0)
                     Text(subTitle)
@@ -91,7 +93,7 @@ struct SpicySelectionView: View {
 
             })
             .navigationTitle("이전 단계로")
-
+            .background(Color.white)
             
         }
        

@@ -48,32 +48,45 @@ struct CommunityView: View {
                 ZStack{
                     Color.white // 배경색을 흰색으로 설정
                                    .edgesIgnoringSafeArea(.all) // 배경색이 전체 화면을 채우도록 설정
-                    ScrollView {
-                        VStack(spacing: 0) {
-                            ForEach(viewModel.feeds) { item in
-                                Button(action: {
-                                    self.selectedItem = item
-                                }) {
-                                    FeedItemRow(item: item)
-                                }
-                                .buttonStyle(PlainButtonStyle()) // Removes the button's default styling
-                                
-                            }
+
+//                        if viewModel.feeds.isEmpty {
+
+                            Text("아직 올라온 동네 맛집 소식이 없어요!")
+                                .font(.teFont18M())
+                                .foregroundStyle(Color.teTitleGray)
+
+
+                           
+//                        }else{
+//                ScrollView {
+//                            VStack(spacing: 0) {
+//                             
+//                                ForEach(viewModel.feeds) { item in
+//                                    Button(action: {
+//                                        self.selectedItem = item
+//                                    }) {
+//                                        FeedItemRow(item: item)
+//                                    }
+//                                    .buttonStyle(PlainButtonStyle()) // Removes the button's default styling
+//                                    
+//                                }
+//                            }
+
   
-                        }
-                    }
+                        
+//                    }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             HStack{
-                                Button(action: {}) {
-                                    Image(systemName: "magnifyingglass")
-                                        .resizable()
-                                        .renderingMode(.template)
-                                        .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(Color.teMidGray)
-                                }
-                                Spacer()
-                                    .frame(width: 10)
+//                                Button(action: {}) {
+//                                    Image(systemName: "magnifyingglass")
+//                                        .resizable()
+//                                        .renderingMode(.template)
+//                                        .aspectRatio(contentMode: .fill)
+//                                        .foregroundColor(Color.teMidGray)
+//                                }
+//                                Spacer()
+//                                    .frame(width: 10)
                                 NavigationLink(destination: CreatePostView()
                                     .navigationTitle("투데이츠 입력")
                                     .navigationBarTitleDisplayMode(.inline)

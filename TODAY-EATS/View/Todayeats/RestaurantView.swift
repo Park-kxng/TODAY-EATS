@@ -66,7 +66,8 @@ struct RestaurantView: View {
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
-                    
+                        .foregroundStyle(Color.teBlack)
+
                     Spacer()
                         .frame(height: 8.0)
                     
@@ -155,7 +156,7 @@ struct RestaurantView: View {
                 .onAppear {
                     viewModel.fetchGoodRestaurant(selection: selectionModel) {
                     }
-                }    
+                }.background(Color.white)
             
             
 

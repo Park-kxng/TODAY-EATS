@@ -39,6 +39,8 @@ struct WeatherSelectionView: View {
                     Text(title)
                         .font(.teFont26B())
                         .kerning(-0.2)
+                        .foregroundStyle(Color.teBlack)
+
                     Spacer()
                         .frame(height: 8.0)
                     Text(subTitle)
@@ -92,7 +94,7 @@ struct WeatherSelectionView: View {
                 selectionModel.weather = newValue
                 nextButtonEnabled = !newValue.isEmpty
 
-            })
+            }).background(Color.white)
         }
        
         func createButtonRow(range : ClosedRange<Int>) -> some View {

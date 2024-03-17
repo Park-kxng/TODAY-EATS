@@ -114,8 +114,7 @@ struct CreatePostView: View {
                                     .font(.teFont16R())
                                     .kerning(-0.2)
                                     .foregroundColor(Color.teBlack)
-                                Spacer()
-                                    .frame(height:-5)
+
                                 HStack {
                                     Text("0분")
                                     Spacer().frame(width: 10)
@@ -218,6 +217,7 @@ struct CreatePostView: View {
             .sheet(isPresented: $isImagePickerDisplayed) {
                 ImagePicker(selectedImage: $selectedImage, isPresented: $isImagePickerDisplayed)
             }
+                
             HStack{
                 Spacer().frame(width: 15.0)
                 Button(action: {
@@ -285,7 +285,13 @@ struct CreatePostView: View {
                     .frame(width: 15.0)
                 
             }.padding(.bottom, 10.0)
-        }
+            .background(Color.white)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
+            .navigationBarItems(leading: BackButton(title: "이전"))
+
+        }.background(Color.white)
+
             
         }
         

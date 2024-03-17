@@ -74,16 +74,16 @@ struct LoginView : View {
 
                                          }
                         //
-                        Spacer().frame(height: 15)
+//                        Spacer().frame(height: 15)
                         
-                        // 네이버 로그인 버튼
-                        Button(action: {
-                        }) {
-                            Image("btn_login_naver")
-                                .resizable()
-                                .renderingMode(.original)
-                                .aspectRatio(contentMode: .fit)
-                        }
+//                        // 네이버 로그인 버튼
+//                        Button(action: {
+//                        }) {
+//                            Image("btn_login_naver")
+//                                .resizable()
+//                                .renderingMode(.original)
+//                                .aspectRatio(contentMode: .fit)
+//                        }
                     }
                     Spacer().frame(width: 15)
 
@@ -101,7 +101,7 @@ struct LoginView : View {
         }
         .onChange(of: authService.signInSuccess) { oldState, newState in
             navigateToOnboarding = newState
-        }
+        }.background(Color.white)
       
     
     }

@@ -62,6 +62,6 @@ struct TODAY_EATSApp: App {
         WindowGroup{
             ContentView() .environmentObject(authService) // Provide AuthService as an EnvironmentObject
         }
-        
+
     }
 }

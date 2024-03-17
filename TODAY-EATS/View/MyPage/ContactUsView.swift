@@ -18,6 +18,7 @@ struct ContactUsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true) // 뒤로가기 버튼 숨기기
             .navigationBarItems(leading: BackButton(title: "이전"))
+            .background(Color.white)
     }
 }
 

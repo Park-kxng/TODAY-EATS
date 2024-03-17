@@ -34,7 +34,7 @@ struct PrivacyPolicyView : View {
                 .font(.teFont14R())
                 .foregroundStyle(Color.teMidGray)
                 .padding()
-        }
+        }.background(Color.white)
     }
 }
 
