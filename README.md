@@ -22,7 +22,4 @@
 <img src="https://github.com/Park-kxng/TODAY-EATS/assets/114843604/1be5015e-371d-46d7-9321-706e2e4d4e81" width="60%" height="60%">
 
 **데모** :
-
-![A960D720-9D7D-4A3E-9A45-44C4D6422ED1_1_102_o](https://github.com/Park-kxng/TODAY-EATS/assets/114843604/42b71c44-01ce-41b4-8b5f-5f273a0906b1)
-![46110199-303C-47A0-BF4B-66C967772F5C_1_102_o](https://github.com/Park-kxng/TODAY-EATS/assets/114843604/42c54c4b-e9ac-457e-b583-5bfc4ae34c5e)
-
+https://youtube.com/shorts/Nb3yn63S5sk?si=lr6JH-e7-005mRIf
